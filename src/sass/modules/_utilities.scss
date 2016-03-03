@@ -54,3 +54,10 @@ img.g-full-width{clear:both;display:block;width:100%;height:auto;margin:0 0 0 0;
 	height: 100%;
     border:none;
 }
+
+.g-align{
+    position:absolute;
+    top:50%; left:50%;
+    @include transform(translate(-50%, -50%));
+    @include transition(transform .3s ease);
+}

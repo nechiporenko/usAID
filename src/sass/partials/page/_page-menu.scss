@@ -21,7 +21,6 @@
     padding:10px;
     color:#fff;
     @include font-size(16px);
-    text-align:center;
     text-decoration:none;
     background:$primary;
     box-sizing:border-box;
@@ -43,20 +42,20 @@
     }
 }
 
+.page-menu__inner{
+    margin:0;
+    text-align:center;
+}
+
 .page-menu__icon{
-    display:block;
     height:100px;
     position:relative;
 
     svg{
-        position:absolute;
-        top:50%; left:50%;
-        @include transform(translate(-50%, -50%));
-        @include transition(transform .3s ease);
+        @extend .g-align;
     }    
 }
 .page-menu__text{
-    display:inline-block;
     @include px2rem(padding-bottom, 12px);
     position:relative;
 

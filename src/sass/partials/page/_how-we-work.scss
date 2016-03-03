@@ -1,0 +1,121 @@
+﻿@import "../../modules/_base.scss";
+/*How We Work section*/
+.b-how{
+    @extend .page__section;
+}
+.b-how__list{
+    @extend .g-clearlist;
+    @extend .g-clearfix;
+}
+
+.b-how__item{
+   @extend .page-menu__item;
+
+   &:last-child{
+       .b-how__inner{
+           &:before,
+            &:after{
+               display:none;
+           }
+       }
+   }
+}
+
+.b-how__inner{
+    text-align:center;
+    position:relative;
+    margin-bottom:80px;
+
+    &:before,
+    &:after{
+        content:'';
+        display:block;
+        position:absolute;
+        bottom:-50px;
+        left:50%;
+    }
+
+    &:before{//полоса стрелки
+        width:4px;
+        height:50px;
+        background:$primary;
+        margin-left:-2px;
+    }
+
+    &:after{//стрелка
+        @include triangle(16px, $primary, down);
+        margin:0 0 -8px -8px;
+    }
+
+    @include media($tablet){
+        margin:0;
+
+        &:before,
+        &:after{
+            left:auto;
+            margin:0;
+            @include transform(translateX(-30px));
+        }
+
+        &:before{
+            bottom:22px;
+            width:50px;
+            height:4px;
+            right:-50px;
+        }
+
+        &:after{
+            @include triangle(16px, $primary, right);
+            bottom:16px;
+            right:-64px;
+        }
+    }
+
+    @include media($large){
+        &:before,
+        &:after{
+            @include transform(translateX(-60px));
+        }
+        &:before{
+            width:120px;
+            right:-120px;
+        }
+
+        &:after{
+            right:-134px;
+        }
+    }
+}
+
+.b-how__icon{
+    height:150px;
+    position:relative;
+
+    svg{
+        position:absolute;
+        bottom:20px;
+        left:50%;
+        @include transform(translateX(-50%));
+    }
+}
+
+.b-how__caption{
+    font-size:0;
+    line-height:1.2;
+}
+.b-how__num,
+.b-how__text{
+    display:inline-block;
+    vertical-align:middle;
+}
+
+.b-how__num{
+    @include font-size(40px);
+    margin-right:8px;
+    font-weight:700;
+    color:$primary-alt;
+}
+.b-how__text{
+    @include font-size(14px);
+    text-align:left;
+}
