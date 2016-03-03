@@ -39,7 +39,6 @@
 // Мобильное меню
 // Сообщения об отправке формы
 // Кнопка скролла страницы
-// Модальное окно
 // Если браузер не знает о svg-картинках
 // Если браузер не знает о плейсхолдерах в формах
 
@@ -148,7 +147,7 @@ jQuery(document).ready(function ($) {
     // Кнопка скролла страницы
     //---------------------------------------------------------------------------------------
     var initPageScroller = (function () {
-        var $scroller = $('<div class="scroll-up-btn"><i class="icon-up-open-big"></i></div>');
+        var $scroller = $('<div class="scroll-up-btn"><i class="icon-up-open"></i></div>');
         $body.append($scroller);
         $window.on('scroll', function () {
             if ($(this).scrollTop() > 300) {
@@ -163,64 +162,6 @@ jQuery(document).ready(function ($) {
         });
     }());
 
-
-    //
-    // Модальное окно
-    //---------------------------------------------------------------------------------------
-    var showModal = (function (link) {
-        var
-        method = {},
-        $modal,
-        $close;
-
-        $close = $('<a class="modal__close" href="#"><i class="icon-cancel"></i></a>'); //иконка закрыть
-
-
-        $close.on('click', function (e) {
-            e.preventDefault();
-            method.close();
-        });
-
-        // центрируем окно
-        method.center = function () {
-            var top, left;
-
-            top = Math.max($window.height() - $modal.outerHeight(), 0) / 2;
-            left = Math.max($window.width() - $modal.outerWidth(), 0) / 2;
-
-            $modal.css({
-                top: top + $window.scrollTop(),
-                left: left + $window.scrollLeft()
-            });
-        };
-
-
-        // открываем
-        method.open = function (link) {
-            $modal = $(link);
-            $modal.append($close);
-            method.center();
-            $window.bind('resize.modal', method.center);
-            $modal.show();
-            $overlay.show().bind('click', method.close);
-        };
-
-        // закрываем
-        method.close = function () {
-            $modal.hide();
-            $overlay.hide().unbind('click', method.close);
-            $window.unbind('resize.modal');
-        };
-
-        return method;
-    }());
-
-    // клик по кнопке с атрибутом data-modal - открываем модальное окно
-    $('[data-modal]').on('click', function (e) {//передаем айди модального окна
-        e.preventDefault();
-        var link = $(this).data('modal');
-        if (link) { showModal.open(link); }
-    });
 
     //
     // Если браузер не знает о svg-картинках

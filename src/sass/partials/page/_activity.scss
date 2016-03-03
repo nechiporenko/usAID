@@ -1,0 +1,87 @@
+﻿@import "../../modules/_base.scss";
+/*Areas of activity section*/
+.b-activity{
+    @extend .page__section;
+}
+.b-activity__list{
+    @extend .g-clearlist;
+    @extend .g-clearfix;
+}
+
+.b-activity__item{
+    @extend .page-menu__item;
+}
+
+.b-activity__inner{
+    max-width:270px;
+    margin:0 auto $project-line-height;
+}
+.b-activity__link{
+    text-decoration:none;
+    color:$title-color;
+
+    &:hover,
+    &:active{
+        color:$primary;
+
+        svg{
+            @include transform(translate(-50%, 10px));
+        }
+    }
+}
+.b-activity__icon{
+    height:120px;
+    position:relative;
+    
+
+    svg{
+        position:absolute;
+        bottom:20px;
+        left:50%;
+        @include transform(translateX(-50%));
+        @include transition(transform .3s ease);
+        @include backface-visibility(hidden);
+    }
+}
+.b-activity__title{
+    @include font-size(18px);
+    font-family:$font-title;
+    font-weight:700;
+    line-height:1.44;
+}
+
+.b-activity__count{
+    font-family:$font-regular;
+    font-weight:600;
+    color:$primary-alt;
+}
+
+.b-activity__caption{
+    padding-top:5px;
+    @include font-size(14px);
+    line-height:1.28;
+
+    p{
+        margin-bottom:10px;
+    }
+}
+
+.b-activity__meta{
+    color:$primary;
+    text-decoration:none;
+    font-weight:300;
+    @include font-size(13px);
+}
+
+.b-activity__num{
+    display:inline-block;
+    vertical-align:middle;
+    margin-right:3px;
+    padding:0 3px;
+    height:13px;
+    line-height:11px;
+    border:1px solid $primary;
+    @include font-size(10px);
+    text-align:center;
+    box-sizing:border-box;
+}
