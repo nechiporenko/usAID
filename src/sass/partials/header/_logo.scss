@@ -1,0 +1,26 @@
+﻿@import "../../modules/_base.scss";
+
+/*Header Logo*/
+.b-header__logo{
+    float:left;
+    width:123px;
+    height:36px;
+    @include hide-text;
+    background-image:url(../img/logo-xs.png);
+    background-repeat:no-repeat;
+
+    @include hidpi(1.5){
+        background-image:url(../img/logo-xs-2x.png);
+        background-size:100% 100%;
+    }
+
+    @include media($tablet){
+        width:400px;
+        height:58px;
+        background-image:url(../img/logo.png);
+
+        @include hidpi(1.5){
+            background-image:url(../img/logo-2x.png);
+        }
+    }
+}

@@ -1,0 +1,28 @@
+﻿@import "base";
+/* Buttons */
+.g-btn{
+    display:inline-block;
+    vertical-align:middle;
+    @include px2rem(margin-bottom, $project-line-height);
+    @include px2rem(height, 38px);
+    @include px2rem(line-height, 38px);
+    @include px2rem(padding, 0 30px);
+    color:#fff;
+    text-align: center;
+    @include font-size($project-font-size);
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: $primary;
+    border-radius:$border-radius;
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+
+    &:hover,
+    &:focus,
+    &:active{
+        color:#fff;
+        box-shadow:inset 2px 2px 30px darken($primary, 20%);
+        outline:0;
+    }
+}

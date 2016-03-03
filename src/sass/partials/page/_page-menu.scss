@@ -1,0 +1,74 @@
+﻿@import "../../modules/_base.scss";
+/*Page-Menu (big links with icons)*/
+.page-menu{
+    @extend .g-clearlist;
+    @extend .g-clearfix;
+    line-height:1;
+}
+.page-menu__item{
+    margin-bottom:30px;
+
+    @include media($tablet){
+        @include span-columns(4);
+        @include omega(3n);
+    }
+}
+.page-menu__link{
+    display:block;
+    height:180px;
+    max-width:360px;
+    margin:0 auto;
+    padding:10px;
+    color:#fff;
+    @include font-size(16px);
+    text-align:center;
+    text-decoration:none;
+    background:$primary;
+    box-sizing:border-box;
+
+    &:hover,
+    &:active{
+        background:$primary-light;
+        .page-menu__icon svg{
+            @include transform(translate(-50%, -60%));
+        }
+    }
+}
+
+.page-menu__link--alt{
+    background:$primary-alt;
+    &:hover,
+    &:active{
+        background:$primary-alt-light;
+    }
+}
+
+.page-menu__icon{
+    display:block;
+    height:100px;
+    position:relative;
+
+    svg{
+        position:absolute;
+        top:50%; left:50%;
+        @include transform(translate(-50%, -50%));
+        @include transition(transform .3s ease);
+    }    
+}
+.page-menu__text{
+    display:inline-block;
+    @include px2rem(padding-bottom, 12px);
+    position:relative;
+
+    &:after{
+        content:'';
+        display:block;
+        height:1px;
+        background:#fff;
+        width:106px;
+        position:absolute;
+        left:50%;
+        bottom:0;
+        margin-left:-53px;
+    }
+}

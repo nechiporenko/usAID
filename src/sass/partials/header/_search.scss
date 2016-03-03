@@ -1,0 +1,68 @@
+﻿@import "../../modules/_base.scss";
+/*Header Search Form*/
+.b-search{
+    float:right;
+    font-size:0;
+
+    @include media($small){//делаем равной по ширине верхнему блоку с социконками и переключалками языков
+        width:268px;
+    }
+
+    @include media($tablet){//увеличили лого и выровняли инпут формы поиска по его верхнему краю
+        padding-top:8px;
+    }
+
+    @include media($desktop){//выровняли инпут по подписи в лого
+        padding-top:16px;
+    }
+}
+
+.b-search__input{
+   @extend .g-input;
+   margin-bottom:0;
+   width:125px;
+   @include font-size(14px);
+
+   @include media($mobile){
+       width:164px;
+   }
+
+   @include media($small){
+       width:182px;
+   }
+}
+.b-search__btn{
+    display:inline-block;
+    vertical-align:middle;
+    padding:0;
+    height:36px;
+    line-height:36px;
+    color:#fff;
+    @include font-size(14px);
+    font-weight:700;
+    text-align:center;
+    background:$primary;
+    border:none;
+    box-sizing:border-box;
+
+    &:hover,
+    &:focus{
+        background:$primary-light;
+        outline:0;
+    }
+}
+.b-search__btn--xs{
+    width:36px;
+
+    @include media($small){
+        display:none;
+    }
+}
+.b-search__btn--xl{
+    width:86px;
+    display:none;
+
+    @include media($small){
+        display:inline-block;
+    }
+}
