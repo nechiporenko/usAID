@@ -23,6 +23,7 @@ textarea {
     @include px2rem(padding, 6px 15px);
     background-color: #fff;
     border: 1px solid $primary;
+    border-radius:0;
     color:$text-color;
     @include font-size(16px);
     box-sizing: border-box;

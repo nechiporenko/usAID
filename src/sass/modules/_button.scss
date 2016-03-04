@@ -12,12 +12,14 @@
     @include font-size($project-font-size);
     text-decoration: none;
     white-space: nowrap;
-    background-color: $primary;
+    background:$primary;
     border: none;
     border-bottom:4px solid darken($primary, 10%);
     cursor: pointer;
     box-sizing: border-box;
-    @include transition(transform .2s ease);
+    @include transition-property(background, border-color, color, transform);
+    @include transition-duration(.2s);
+    @include transition-timing-function(ease-in);
 
     &:hover,
     &:focus,
@@ -29,5 +31,46 @@
 
     &:active{
         @include transform(translateY(3px));
+    }
+}
+
+.g-btn--alt{
+    background: $primary-alt;
+    border-bottom:4px solid darken($primary-alt, 10%);
+
+    &:hover,
+    &:focus,
+    &:active{
+        background:$primary-alt-light;
+    }
+}
+
+.g-btn--bordered{
+    @include px2rem(height, 48px);
+    @include px2rem(line-height, 44px);
+    border:2px solid $primary;
+    color:$primary;
+    background:#fff;
+    font-weight:600;
+    @include font-size(18px);
+
+    &:hover,
+    &:focus,
+    &:active{
+        background:#fff;
+        border-color:$primary-alt;
+        color:$primary-alt;
+    }
+}
+
+.g-btn--alt.g-btn--bordered{
+    border-color:$primary-alt;
+    color:$primary-alt;
+
+    &:hover,
+    &:focus,
+    &:active{
+        border-color:$primary;
+        color:$primary;
     }
 }

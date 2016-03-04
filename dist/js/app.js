@@ -172,7 +172,7 @@ jQuery(document).ready(function ($) {
                      },
                     common = {
                         slideWidth: 180,
-                        slideMargin: 75,
+                        slideMargin: 65,
                         auto: false,
                         pager: false,
                         mode: 'horizontal',

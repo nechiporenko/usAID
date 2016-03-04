@@ -2,6 +2,7 @@
 /*Events Section*/
 .b-events{
     padding:35px 0;
+    margin-bottom:20px;
     background:#336796;
     color:#fff;
     @include font-size(14px);
@@ -99,7 +100,7 @@
 }
 
 .b-events__inner{
-    padding:0 40px;
+    padding:0 50px;
     position:relative;
 }
 .b-events__list{
@@ -117,11 +118,11 @@
 
 .b-events .bx-wrapper{
     .bx-prev {
-		left: -40px;
+		left: -50px;
 		background-position:0 0;
 	}
 	.bx-next {
-		right: -40px;
+		right: -50px;
 		background-position:0 -65px;
 	}
 }
