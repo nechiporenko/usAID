@@ -228,17 +228,74 @@ jQuery(document).ready(function ($) {
     // Слайдер логотипов партнеров
     //---------------------------------------------------------------------------------------
     function initPartnerSlider() {
-        var $slider = $('.js-partners-slider');
-        $slider.bxSlider({
-            pager: false,
-            controls: false,
-            minSlides: 4,
-            maxSlides: 4,
-            slideWidth: 280,
-            slideMargin: 0,
-            ticker: true,
-            speed: 80000
-        });
+        var $slider = $('.js-partners-slider'),
+            rtime, //переменные для пересчета ресайза окна с задержкой delta
+            timeout = false,
+            delta = 200,
+            method = {};
+
+        method.getSliderSettings = function () {
+            var setting,
+                    settings1 = {
+                        maxSlides: 2,
+                        minSlides: 2,
+                    },
+                    settings2 = {
+                        maxSlides: 3,
+                        minSlides: 3,
+                    },
+                     settings3 = {
+                         maxSlides: 4,
+                         minSlides: 4,
+                         moveSlides: 4,
+                     },
+                    common = {
+                        slideWidth: 280,
+                        slideMargin: 0,
+                        controls: false,
+                        pager: false,
+                        ticker: true,
+                        speed: 80000
+                    },
+                    winW = $window.width();
+            if (winW < 550) {
+                setting = $.extend(settings1, common);
+            }
+            if (winW >= 550 && winW <= 1000) {
+                setting = $.extend(settings2, common);
+            }
+            if (winW > 1000) {
+                setting = $.extend(settings3, common);
+            }
+            return setting;
+        }
+
+        method.reloadSliderSettings = function () {
+            $slider.reloadSlider($.extend(method.getSliderSettings(), { startSlide: $slider.getCurrentSlide() }));
+        }
+
+
+        method.endResize = function () {
+            if (new Date() - rtime < delta) {
+                setTimeout(method.endResize, delta);
+            } else {
+                timeout = false;
+                //ресайз окончен - пересчитываем
+                method.reloadSliderSettings();
+            }
+        }
+
+        method.startResize = function () {
+            rtime = new Date();
+            if (timeout === false) {
+                timeout = true;
+                setTimeout(method.endResize, delta);
+            }
+        }
+
+        $slider.bxSlider(method.getSliderSettings());//запускаем слайдер
+
+        $window.bind('resize', method.startResize);//пересчитываем кол-во видимых элементов при ресайзе окна с задержкой .2с
     }
     if($('.js-partners-slider').length){initPartnerSlider()}
 

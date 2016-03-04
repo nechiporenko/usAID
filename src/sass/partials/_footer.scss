@@ -1,3 +1,75 @@
 @import "../modules/base";
-
 /*Site Footer*/
+.b-footer{
+    @extend .g-container;
+    color:#7d7d7d;
+}
+.b-footer__main{
+    @extend .g-row;
+    padding:50px 0;
+    border-top:1px solid #0a0a0a;
+    @include font-size(14px);
+    line-height:1.57;
+}
+
+.b-footer__column{
+    @extend .g-column;
+
+    @include media($desktop){
+        width:50%;
+        padding-left:30px;
+
+        &:first-child{
+            padding-left:0;
+            padding-right:30px;
+            border-right:1px solid #d1d1d1;
+        }
+    }
+}
+
+.b-footer__logo{
+    display:block;
+    width:260px;
+    height:38px;
+    margin-bottom:20px;
+    @include hide-text;
+    background:url(../img/logo.png) no-repeat;
+    background-size:100% 100%;
+
+    @include media($mobile){
+        width:360px;
+        height:53px;
+    }
+}
+
+.b-footer__contacts{
+    @include font-size($project-font-size);
+    line-height:strip-units($project-line-height/$project-font-size);
+    @include px2rem(letter-spacing, -.2px);
+
+    a{
+        text-decoration:none;
+        &:hover,
+        &:active{
+            text-decoration:underline;
+        }
+    }
+}
+
+.b-footer__sole{
+    padding:10px 0 30px;
+    color:#4d4d4d;
+    @include font-size(14px);
+    text-align:center;
+
+    a{
+        color:#4d4d4d;
+        text-decoration:none;
+
+        &:hover,
+        &:active{
+            color:$primary;
+        }
+    }
+
+}
