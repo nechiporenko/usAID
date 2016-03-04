@@ -1,0 +1,36 @@
+﻿@import "../../modules/_base.scss";
+/*Partners Slider section*/
+.b-partners{
+    @extend .page__section;
+    background:#fafcfd;
+}
+.b-partners__list{
+    @extend .g-clearlist;
+}
+.b-partners__item{
+    float:left;
+    height:160px;
+    padding:20px 10px;
+    min-height:1px;
+    width:25%;
+    box-sizing:border-box;
+}
+.b-partners__inner{
+    margin:0;
+    @extend .g-as-table;
+}
+.b-partners__link{
+    @extend .g-as-cell;
+    text-decoration:none;
+
+    &:hover,
+    &:active{
+        .b-partners__img{
+            @include transform(translateY(-10px));
+        }
+    }
+}
+
+.b-partners__img{
+    @include transition(transform .5s ease);
+}

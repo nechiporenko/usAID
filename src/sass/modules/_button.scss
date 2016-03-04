@@ -6,7 +6,7 @@
     @include px2rem(margin-bottom, 10px);
     @include px2rem(height, 44px);
     @include px2rem(line-height, 40px);
-    @include px2rem(padding, 0 30px);
+    padding:0 30px;
     color:#fff;
     text-align: center;
     @include font-size($project-font-size);
@@ -46,13 +46,13 @@
 }
 
 .g-btn--bordered{
+    padding:0 10px;
     @include px2rem(height, 48px);
     @include px2rem(line-height, 44px);
     border:2px solid $primary;
     color:$primary;
     background:#fff;
     font-weight:600;
-    @include font-size(18px);
 
     &:hover,
     &:focus,
@@ -60,6 +60,11 @@
         background:#fff;
         border-color:$primary-alt;
         color:$primary-alt;
+    }
+
+    @include media($small){
+        padding:0 30px;
+        @include font-size(18px);
     }
 }
 

@@ -11,9 +11,8 @@
     @extend .page-menu__item;
 }
 .b-posts__inner{
-    margin-left:auto;
-    margin-right:auto;
     max-width:360px;
+    margin:0 auto 2*$project-line-height;
 }
 .b-posts__link{
     display:block;
@@ -98,5 +97,23 @@
     &:hover,
     &:active{
         color:$primary-alt;
+    }
+}
+
+/*Posts list - alternative colors*/
+.b-posts--alt{
+    .b-posts__link:before{
+        background:$primary-alt;
+    }
+    .b-posts__category{
+        background:$primary-alt;
+    }
+    .b-posts__title{
+        color:$primary-alt;
+
+        &:hover,
+        &:active{
+            color:$primary;
+        }
     }
 }

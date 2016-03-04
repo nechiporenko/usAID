@@ -39,6 +39,7 @@
 // Мобильное меню
 // Покажем скрытую форму при клике на ссылку
 // Слайдер событий
+// Слайдер логотипов партнеров
 // Кнопка скролла страницы
 // Если браузер не знает о svg-картинках
 // Если браузер не знает о плейсхолдерах в формах
@@ -221,7 +222,25 @@ jQuery(document).ready(function ($) {
         $window.bind('resize', method.startResize);//пересчитываем кол-во видимых элементов при ресайзе окна с задержкой .2с
     }
 
-    if($('.js-event-slider').length){initEventSlider()}
+    if ($('.js-event-slider').length) { initEventSlider() }
+
+    //
+    // Слайдер логотипов партнеров
+    //---------------------------------------------------------------------------------------
+    function initPartnerSlider() {
+        var $slider = $('.js-partners-slider');
+        $slider.bxSlider({
+            pager: false,
+            controls: false,
+            minSlides: 4,
+            maxSlides: 4,
+            slideWidth: 280,
+            slideMargin: 0,
+            ticker: true,
+            speed: 80000
+        });
+    }
+    if($('.js-partners-slider').length){initPartnerSlider()}
 
     //
     // Кнопка скролла страницы
