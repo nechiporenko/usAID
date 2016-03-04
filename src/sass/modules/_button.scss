@@ -3,9 +3,9 @@
 .g-btn{
     display:inline-block;
     vertical-align:middle;
-    @include px2rem(margin-bottom, $project-line-height);
-    @include px2rem(height, 38px);
-    @include px2rem(line-height, 38px);
+    @include px2rem(margin-bottom, 10px);
+    @include px2rem(height, 44px);
+    @include px2rem(line-height, 40px);
     @include px2rem(padding, 0 30px);
     color:#fff;
     text-align: center;
@@ -13,16 +13,21 @@
     text-decoration: none;
     white-space: nowrap;
     background-color: $primary;
-    border-radius:$border-radius;
     border: none;
+    border-bottom:4px solid darken($primary, 10%);
     cursor: pointer;
     box-sizing: border-box;
+    @include transition(transform .2s ease);
 
     &:hover,
     &:focus,
     &:active{
         color:#fff;
-        box-shadow:inset 2px 2px 30px darken($primary, 20%);
+        background:$primary-light;
         outline:0;
+    }
+
+    &:active{
+        @include transform(translateY(3px));
     }
 }

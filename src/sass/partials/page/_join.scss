@@ -1,0 +1,36 @@
+﻿@import "../../modules/_base.scss";
+/*Join Form Section*/
+.b-join{
+    @extend .page__section;
+}
+
+.b-join__header{
+    text-align:center;
+    .g-title{
+        margin-bottom:12px;
+    }
+}
+
+.b-join__link{
+    color:$primary-alt;
+
+    &:hover,
+    &:active{
+        color:$primary-alt-light;
+    }
+}
+
+.b-join__icon{
+    width:62px;
+    margin:0 auto $project-line-height;
+}
+
+.b-join__form{
+    max-width:680px;
+    margin:0 auto;
+    display:none;
+}
+
+.no-js .b-join__form{
+    display:block;
+}

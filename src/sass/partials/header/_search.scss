@@ -19,6 +19,7 @@
 
 .b-search__input{
    @extend .g-input;
+   height:36px;
    margin-bottom:0;
    width:125px;
    @include font-size(14px);

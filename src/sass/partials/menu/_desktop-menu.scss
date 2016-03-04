@@ -76,3 +76,9 @@
         cursor:default;
     }
 }
+
+.no-js .d-menu__item:hover{
+    & > .d-submenu{
+        display:block;
+    }
+}

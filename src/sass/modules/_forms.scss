@@ -19,12 +19,12 @@ textarea {
     display:inline-block;
     vertical-align:middle;
     width:100%;
-    @include px2rem(margin-bottom, $project-line-height);
-    @include px2rem(padding, 0 10px);
+    @include px2rem(margin-bottom, 10px);
+    @include px2rem(padding, 6px 15px);
     background-color: #fff;
-    border: 1px solid $border-color;
+    border: 1px solid $primary;
     color:$text-color;
-    box-shadow: none;
+    @include font-size(16px);
     box-sizing: border-box;
 
     @include placeholder{
@@ -34,7 +34,7 @@ textarea {
 
     &:hover,
     &:focus{
-        border-color:$primary;
+        border-color:$primary-light;
         outline:0;
     }
 
@@ -55,11 +55,11 @@ textarea {
 
 .g-input,
 .g-select{
-    @include px2rem(height, 36px);
+    @include px2rem(height, 44px);
 }
 
 .g-textarea{
-    @include px2rem(min-height, $project-line-height*5);
+    @include px2rem(min-height, 98px);
 }
 
 .g-label{
@@ -80,37 +80,3 @@ textarea {
 input[type="checkbox"],
 input[type="radio"] {
   display: inline; }
-
-
-
-
-/*form notices*/
-.g-notice{
-    @include px2rem(padding, 16px 20px);
-    @include px2rem(margin, $project-line-height/2 0);
-    border:1px solid $primary;
-    border-radius:$border-radius;
-    text-align:center;
-    position:relative;
-    display:none;
-
-    p{
-        @include px2rem(margin, $project-line-height/2 0);
-    }
-}
-.g-notice__close{
-    position:absolute;
-    top:5px;
-    right:5px;
-    text-decoration:none;
-    cursor:pointer;
-}
-
-.g-notice--bad{
-    color:red;
-    border-color:red;
-
-    .g-notice__close{
-        color:red;
-    }
-}

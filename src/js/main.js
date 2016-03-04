@@ -2,7 +2,6 @@
 
 // Десктоп меню (выпадайки)
 // Мобильное меню
-// Сообщения об отправке формы
 // Кнопка скролла страницы
 // Если браузер не знает о svg-картинках
 // Если браузер не знает о плейсхолдерах в формах
@@ -95,18 +94,17 @@ jQuery(document).ready(function ($) {
     initMobileMenu();
 
     //
-    // Сообщения об отправке формы
+    // Покажем скрытую форму при клике на ссылку
     //---------------------------------------------------------------------------------------
-    // после аякс-отправки формы ($form), если все ок - $form.find('.g-notice--ok').fadeIn();
-    // если вернуло ошибку - $form.find('.g-notice--bad').fadeIn();
-    var showFormNotice = (function () {
-        var $notice = $('.js-notice');
-        $notice.append('<a class="g-notice__close"><i class="icon-cancel"></i></a>'); //иконка закрытия
-        $notice.on('click', '.g-notice__close', function (e) {//закроем блок по клику на иконку
+    function showForm() {
+        var $link = $('.js-join'),
+            target = $link.attr('href');
+        $link.one('click', function (e) {
             e.preventDefault();
-            $(this).parent('div').fadeOut();
+            $(target).fadeIn();
         });
-    }());
+    }
+    if($('.js-join').length){showForm()}
 
     //
     // Кнопка скролла страницы
