@@ -1,0 +1,127 @@
+﻿@import "../../modules/_base.scss";
+/*Events Section*/
+.b-events{
+    padding:35px 0;
+    background:#336796;
+    color:#fff;
+    @include font-size(14px);
+    font-weight:300;
+    line-height:1.4;
+    position:relative;
+    z-index:1;
+    
+
+    &:before{
+        content:'';
+        display:block;
+        position:absolute;
+        top:0; left:0; right:0; bottom:0;
+        background:url(../img/pattern.png) repeat;
+        z-index:-1;
+    }
+}
+
+.b-events__next,
+.b-events__slider{
+    @extend .g-column;
+
+    p{
+        margin-bottom:18px;
+    }
+}
+
+.b-events__content{
+    max-width:360px;
+    margin:0 auto 3*$project-line-height;
+}
+
+
+@include media($desktop){
+    .b-events__next{
+        width:31.7615656014%;
+        padding-right:30px;
+    }
+    .b-events__slider{
+        width:(100% - 31.7615656014);
+    }
+    .b-events__content{
+        margin-bottom:0;
+    }
+}
+
+
+
+.b-events__title{
+    @extend .g-title;
+    margin-bottom:$project-line-height;
+    color:#fff;
+}
+.b-events__title--left{
+    text-align:left;
+}
+
+.b-events__meta{
+    width:180px;
+    padding:0 10px;
+    margin-bottom:12px;
+    @extend .g-clearfix;
+    @include font-size(16px);
+    font-weight:400;
+    border-bottom:1px solid #fff;
+    line-height:1.6;
+    white-space:nowrap;
+    box-sizing:border-box;
+}
+.b-events__date{
+    float:left;
+}
+.b-events__time{
+    float:right;
+}
+
+.b-events__meta--label{
+    width:205px;
+    border:none;
+    background:$primary-alt;
+}
+
+.b-events__more{
+    float:right;
+    @include font-size(16px);
+    font-weight:400;
+    font-style:italic;
+    color:#fff;
+
+    &:hover,
+    &:active{
+        color:$border-color;
+    }
+}
+
+.b-events__inner{
+    padding:0 40px;
+    position:relative;
+}
+.b-events__list{
+    @extend .g-clearlist;
+}
+.b-events__link{
+    color:#fff;
+    text-decoration:none;
+
+    &:hover,
+    &:active{
+        color:$border-color;
+    }
+}
+
+.b-events .bx-wrapper{
+    .bx-prev {
+		left: -40px;
+		background-position:0 0;
+	}
+	.bx-next {
+		right: -40px;
+		background-position:0 -65px;
+	}
+}

@@ -2,6 +2,8 @@
 
 // Десктоп меню (выпадайки)
 // Мобильное меню
+// Покажем скрытую форму при клике на ссылку
+// Слайдер событий
 // Кнопка скролла страницы
 // Если браузер не знает о svg-картинках
 // Если браузер не знает о плейсхолдерах в формах
@@ -104,7 +106,87 @@ jQuery(document).ready(function ($) {
             $(target).fadeIn();
         });
     }
-    if($('.js-join').length){showForm()}
+    if ($('.js-join').length) { showForm() }
+
+    //
+    // Слайдер событий
+    //---------------------------------------------------------------------------------------
+    function initEventSlider() {
+        var $slider = $('.js-event-slider'),
+            rtime, //переменные для пересчета ресайза окна с задержкой delta
+            timeout = false,
+            delta = 200,
+            method = {};
+
+        method.getSliderSettings = function () {
+            var setting,
+                    settings1 = {
+                        maxSlides: 1,
+                        minSlides: 1,
+                        moveSlides: 1,
+                    },
+                    settings2 = {
+                        maxSlides: 2,
+                        minSlides: 2,
+                        moveSlides: 2,
+                    },
+                     settings3 = {
+                         maxSlides: 3,
+                         minSlides: 3,
+                         moveSlides: 3,
+                     },
+                    common = {
+                        slideWidth: 180,
+                        slideMargin: 75,
+                        auto: false,
+                        pager: false,
+                        mode: 'horizontal',
+                        infiniteLoop: false,
+                        hideControlOnEnd: true,
+                        useCSS: false
+                    },
+                    winW = $window.width();
+            if (winW < 550) {
+                setting = $.extend(settings1, common);
+            }
+            if (winW >= 550 && winW<=1200) {
+                setting = $.extend(settings2, common);
+            }
+            if (winW > 1200) {
+                setting = $.extend(settings3, common);
+            }
+            return setting;
+        }
+
+        method.reloadSliderSettings = function () {
+            $slider.reloadSlider($.extend(method.getSliderSettings(), { startSlide: $slider.getCurrentSlide() }));
+        }
+
+
+        method.endResize = function () {
+            if (new Date() - rtime < delta) {
+                setTimeout(method.endResize, delta);
+            } else {
+                timeout = false;
+                //ресайз окончен - пересчитываем
+                method.reloadSliderSettings();
+            }
+        }
+
+        method.startResize = function () {
+            rtime = new Date();
+            if (timeout === false) {
+                timeout = true;
+                setTimeout(method.endResize, delta);
+            }
+        }
+
+        $slider.bxSlider(method.getSliderSettings());//запускаем слайдер
+
+        $window.bind('resize', method.startResize);//пересчитываем кол-во видимых элементов при ресайзе окна с задержкой .2с
+    }
+
+    if($('.js-event-slider').length){initEventSlider()}
 
     //
     // Кнопка скролла страницы
