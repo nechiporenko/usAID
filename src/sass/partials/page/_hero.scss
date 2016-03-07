@@ -3,7 +3,7 @@
 .b-hero{}
 .b-hero__inner{
     @extend .g-container;
-    height:232px;
+    height:192px;//232px
     position:relative;
     text-align:center;
     position:relative;
@@ -23,13 +23,12 @@
     @extend .g-title;
     margin:0 auto;
     color:$primary;
-    line-height:1.375;
     @include font-size(25px);
     position:absolute;
     top:50%; left:50%;
     @include transform(translate(-50%, -50%));
 
-    @include media($tablet){
+    @include media($desktop){
         max-width:75%;
         @include font-size(32px);
     }

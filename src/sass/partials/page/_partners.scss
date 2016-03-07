@@ -8,12 +8,17 @@
     @extend .g-clearlist;
 }
 .b-partners__item{
-    float:left;
+    @extend .g-column;
     height:160px;
     padding:20px 10px;
-    min-height:1px;
-    width:25%;
-    box-sizing:border-box;
+
+    @include media($mobile){
+        width:50%;
+    }
+
+    @include media($tablet){
+        width:25%;
+    }
 }
 .b-partners__inner{
     margin:0;

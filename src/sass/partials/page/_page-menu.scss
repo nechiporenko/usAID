@@ -9,13 +9,14 @@
     margin-bottom:30px;
 
     @include media($tablet){
+        margin-bottom:10px;
         @include span-columns(4);
         @include omega(3n);
     }
 }
 .page-menu__link{
     display:block;
-    height:180px;
+    height:160px;//180px
     max-width:360px;
     margin:0 auto;
     padding:10px;
@@ -48,7 +49,7 @@
 }
 
 .page-menu__icon{
-    height:100px;
+    height:90px;//100px
     position:relative;
 
     svg{

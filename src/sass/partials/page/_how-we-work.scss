@@ -13,11 +13,16 @@
 
    &:last-child{
        .b-how__inner{
+           margin-bottom:0;
            &:before,
             &:after{
                display:none;
            }
        }
+   }
+
+   @include media($tablet){
+       margin-bottom:0;
    }
 }
 
