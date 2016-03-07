@@ -9,7 +9,8 @@
     z-index:3200;//поверх оверлея
     overflow-x:hidden;
     overflow-y:auto;
-    @include transition(transform .3s ease);
+    will-change:left;
+    @include transition(left .3s ease);
     @include linear-gradient(to bottom, #222, #444);
 
     @include media($desktop){
@@ -17,15 +18,10 @@
     }
 
     &.active{
-        @include transform(translateX(100%));
-    }
-}
-
-.no-csstransforms{
-    .m-menu.active{
         left:0;
     }
 }
+
 .m-menu__list{
     @extend .g-clearlist;
 }
