@@ -26,6 +26,19 @@
    }
 }
 
+.b-how__link{
+    color:$text-color;
+    text-decoration:none;
+
+    &:hover,
+    &:active{
+        color:$primary-alt;
+        .b-how__icon svg{
+            @include transform(translateX(-50%) translateY(10px) scale(.8));
+        }
+    }
+}
+
 .b-how__inner{
     text-align:center;
     position:relative;
@@ -101,6 +114,7 @@
         bottom:20px;
         left:50%;
         @include transform(translateX(-50%));
+        @include transition(transform .3s ease);
     }
 }
 
@@ -123,4 +137,5 @@
 .b-how__text{
     @include font-size(14px);
     text-align:left;
+    @include transition(color .3s ease);
 }
