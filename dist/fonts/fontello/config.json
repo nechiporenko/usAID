@@ -131,6 +131,12 @@
       "css": "doc-text-inv",
       "code": 59412,
       "src": "fontawesome"
+    },
+    {
+      "uid": "1e32e1f8787cf3cb9f52f8850822dcb6",
+      "css": "cogs",
+      "code": 59413,
+      "src": "elusive"
     }
   ]
 }
