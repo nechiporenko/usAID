@@ -21,7 +21,7 @@ jQuery(document).ready(function ($) {
     //
     // Десктоп меню (выпадайки)
     //---------------------------------------------------------------------------------------
-    var initDesktopMenu = (function () {
+    (function () {
         $('.js-menu li').on({
             mouseenter: function () {
                 $(this).find('ul:first').stop(true, true).fadeIn('fast');
@@ -31,13 +31,13 @@ jQuery(document).ready(function ($) {
                 $(this).find('ul').stop(true, true).fadeOut('slow');
                 $(this).find('a:first').removeClass('hover');
             }
-        })
+        });
     })();
 
     //
     // Мобильное меню
     //---------------------------------------------------------------------------------------
-    function initMobileMenu() {
+    (function () {
         var $btn = $('.js-mtoggle'),
             $menu = $('.js-mmenu'),
             $submenu = $menu.find('.m-submenu'),
@@ -85,7 +85,7 @@ jQuery(document).ready(function ($) {
 
         $menu.on('click', '.m-menu__btn', function () {//покажем - спрячем подменю
             var $el = $(this);
-            
+
             if ($el.hasClass('active')) {
                 method.hideSubMenu();
             } else {
@@ -93,8 +93,7 @@ jQuery(document).ready(function ($) {
                 $el.addClass('active').parent('li').find('ul').slideDown();
             }
         });
-    }
-    initMobileMenu();
+    })();
 
     //
     // Покажем скрытую форму при клике на ссылку
@@ -107,7 +106,7 @@ jQuery(document).ready(function ($) {
             $(target).fadeIn();
         });
     }
-    if ($('.js-join').length) { showForm() }
+    if ($('.js-join').length) { showForm(); }
 
     //
     // Слайдер событий
@@ -267,7 +266,7 @@ jQuery(document).ready(function ($) {
     //
     // Кнопка скролла страницы
     //---------------------------------------------------------------------------------------
-    var initPageScroller = (function () {
+    (function () {
         var $scroller = $('<div class="scroll-up-btn"><i class="icon-up-open"></i></div>');
         $body.append($scroller);
         $window.on('scroll', function () {
@@ -281,7 +280,7 @@ jQuery(document).ready(function ($) {
             $('html, body').animate({ scrollTop: 0 }, 800);
             return false;
         });
-    }());
+    })();
 
 
     //
@@ -291,7 +290,7 @@ jQuery(document).ready(function ($) {
         $('img[src*="svg"]').attr('src', function () {
             return $(this).attr('src').replace('.svg', '.png');
         });
-    }
+    };
     
     //
     // Если браузер не знает о плейсхолдерах в формах
