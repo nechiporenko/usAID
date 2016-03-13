@@ -1,0 +1,9 @@
+﻿@import "../../modules/_base.scss";
+/*Steps section*/
+.b-steps{
+    @extend .page__section;
+}
+.b-steps__title{
+    @extend .g-title;
+    color:$primary-alt;
+}

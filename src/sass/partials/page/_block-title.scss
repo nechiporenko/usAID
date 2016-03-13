@@ -1,0 +1,48 @@
+﻿@import "../../modules/_base.scss";
+/*Page Block Title*/
+.b-title{
+    padding:43px 0;
+    margin-bottom:104px;
+    background:#f3f3f3;
+    position:relative;
+    text-align:center;
+    z-index:10; //скрыть линии на десктопе
+
+    @include media($desktop){
+        margin-bottom:84px;
+    }
+}
+.b-title__item{
+    display:block;
+    margin:0;
+    line-height:1.16;
+    color:$primary-alt;
+    font-family:$font-title;
+    @include font-size(21px);
+    font-weight:700;
+}
+
+.b-title__icon{
+    @include size(100px);
+    line-height:100px;
+    position:absolute;
+    bottom:-76px;
+    left:50%;
+    margin:0 0 0 -52px;
+    background:$primary;
+    border-radius:50%;
+    color:#fff;
+    @include font-size(52px);//можно вставить иконку
+    z-index:10;
+
+    [class^="icon-"]:before, [class*=" icon-"]:before{
+        margin:0;
+    }
+
+    svg{
+        position:absolute;
+        top:50%;
+        left:50%;
+        @include transform(translate(-50%, -50%));
+    }
+}
