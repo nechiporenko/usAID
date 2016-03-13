@@ -6,6 +6,7 @@
 // Слайдер событий
 // Слайдер логотипов партнеров
 // Скролл контента (блоки в разделе Шаги реализации)
+// Аккордеон в разделе Шаги реализации
 // Кнопка скролла страницы
 // Если браузер не знает о svg-картинках
 // Если браузер не знает о плейсхолдерах в формах
@@ -276,7 +277,72 @@ jQuery(document).ready(function ($) {
             });
         });
     }
-    if ($('.js-scroll').length) { initScroll();}
+    if ($('.js-scroll').length) { initScroll(); }
+
+    //
+    // Аккордеон в разделе Шаги реализации
+    //---------------------------------------------------------------------------------------
+    function initStepAccordion(el) {
+        var method = {};
+
+        method.initTabs = function () {
+            var $tab = $('.step-tabs__content');
+            $tab.not(':first').hide();
+            $tab.filter(':first').parent('li').addClass('active');
+        }
+
+        method.openTabs = function (el) {
+            $(el).find('.step-tabs__content').each(function () {
+                if ($(this).parent('li').hasClass('active')) {
+                    return false;
+                } else {
+                    $(this).slideDown().parent('li').addClass('active');
+                }
+            });
+        }
+
+        method.closeTabs = function (el) {
+            $(el).find('.step-tabs__content').each(function () {
+                if (!$(this).parent('li').hasClass('active')) {
+                    return false;
+                } else {
+                    $(this).slideUp().parent('li').removeClass('active');
+                }
+            });
+        }
+
+        method.showTab = function (link) {
+            var target = link.attr('href');
+            link.parents('li').addClass('active');
+            $(target).slideDown();
+        }
+
+        method.hideTab = function (link) {
+            var target = link.attr('href');
+            link.parents('li').removeClass('active');
+            $(target).slideUp();
+        }
+
+       
+        method.initTabs();
+
+        $('.js-step-acc').on('click', '.step-tabs__title', function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            var link = $(this);
+            if (link.parents('li').hasClass('active')) {
+                method.hideTab(link);
+            } else {
+                method.showTab(link);
+            }
+        });
+
+        return method;
+    }
+    if ($('.js-step-acc').length) {
+        initStepAccordion();
+    }
+
     //
     // Кнопка скролла страницы
     //---------------------------------------------------------------------------------------

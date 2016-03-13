@@ -13,8 +13,8 @@
 }
 
 .b-steps__name{
-    display:block;
     padding:30px 10px 30px 50px;
+    margin:0;
     border-radius:5px;
     line-height:1;
     min-height:174px;
@@ -36,9 +36,14 @@
         padding-right:130px;
     }
 
-    &:hover,
-    &:active{
-        background:$primary-light;
+    &:before{
+        content:'';
+        width:6px;
+        height:60px;
+        background:$primary-alt;
+        position:absolute;
+        top:30px;
+        left:0;
     }
 }
 
