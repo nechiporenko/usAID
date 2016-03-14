@@ -312,7 +312,8 @@ jQuery(document).ready(function ($) {
             var $scroll = $(this);
             $scroll.perfectScrollbar({
                 wheelPropagation: true,
-                minScrollbarLength:30
+                minScrollbarLength: 30,
+                maxScrollbarLength: 180
             });
         });
     }
@@ -330,43 +331,44 @@ jQuery(document).ready(function ($) {
             $tab.filter(':first').parent('li').addClass('active');
         }
 
-        method.openTabs = function (el) {
-            $(el).find('.step-tabs__content').each(function () {
-                if ($(this).parent('li').hasClass('active')) {
-                    return false;
-                } else {
-                    $(this).slideDown().parent('li').addClass('active');
-                }
-            });
-        }
-
-        method.closeTabs = function (el) {
-            $(el).find('.step-tabs__content').each(function () {
-                if (!$(this).parent('li').hasClass('active')) {
-                    return false;
-                } else {
-                    $(this).slideUp().parent('li').removeClass('active');
-                }
-            });
+        method.openTabs = function (target) {//раскроем обе вкладки аккордеона по айди родителя
+            if (target) {
+                $(target).find('.step-tabs__content').each(function () {
+                    if (!$(this).parent('li').hasClass('active')) {
+                        $(this).slideDown().parent('li').addClass('active');
+                    }
+                });
+            }
         }
 
         method.showTab = function (link) {
             var target = link.attr('href');
-            link.parents('li').addClass('active');
-            $(target).slideDown();
+            if (target) {
+                link.parents('li').addClass('active');
+                $(target).slideDown();
+            }
         }
 
         method.hideTab = function (link) {
             var target = link.attr('href');
-            link.parents('li').removeClass('active');
-            $(target).slideUp();
+            if (target) {
+                link.parents('li').removeClass('active');
+                $(target).slideUp();
+            }
+        }
+
+        method.scrollToTab = function (target) {
+            if (target) {
+                $('html, body').animate({
+                    scrollTop: $(target).offset().top
+                }, 800);
+            }
         }
 
        
-        method.initTabs();
+        method.initTabs();//скрыли все вкладки аккордеона кроме первой
 
-        $('.js-step-acc').on('click', '.step-tabs__title', function (e) {
-            e.stopPropagation();
+        $('.js-step-acc').on('click', '.step-tabs__title', function (e) {//раскроем-скроем вкладку аккордеона по клику на заголовок
             e.preventDefault();
             var link = $(this);
             if (link.parents('li').hasClass('active')) {
@@ -374,6 +376,13 @@ jQuery(document).ready(function ($) {
             } else {
                 method.showTab(link);
             }
+        });
+
+        $('.js-step-links').on('click', '.b-change__link', function (e) {//по клику на блок с в разделе Изменения
+            e.preventDefault();
+            var target = $(this).attr('href');
+            method.scrollToTab(target);//промотаем к соответствующему шагу
+            method.openTabs(target);
         });
 
         return method;
