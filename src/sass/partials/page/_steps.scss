@@ -82,7 +82,7 @@
     border-bottom:1px solid #fff;
 }
 
-
+/*Steps accordion*/
 .step-tabs{
     @extend .g-clearlist;
 }
@@ -183,4 +183,85 @@
 .no-js .step-tabs__content{
     max-height:none;
     overflow:auto;
+}
+
+/*Steps inner tabs*/
+.icon-tabs{
+    list-style-type:none;
+    padding:0;
+    margin-bottom:10px;
+    font-size:0;
+}
+.icon-tabs__item{
+    display:inline-block;
+    @include font-size(14px);
+    margin:0 10px 10px 0;
+
+    &.current{
+        .icon-tabs__link{
+            color:$primary;
+        }
+        .icon-tabs__icon{
+            background:$primary;
+        }
+        .icon-tabs__name{
+            opacity:1;
+        }
+    }
+}
+.icon-tabs__link{
+    display:block;
+    width:130px;
+    text-decoration:none;
+    color:$text-color;
+
+    &:hover,
+    &:active{
+        color:$primary;
+        .icon-tabs__icon{
+            background:$primary;
+        }
+        .icon-tabs__name{
+            opacity:1;
+        }
+    }
+}
+
+.no-js {
+    .icon-tabs__link{
+            color:$primary;
+        }
+    .icon-tabs__icon{
+        background:$primary;
+    }
+    .icon-tabs__name{
+        opacity:1;
+    }
+}
+
+.icon-tabs__thumb{
+    margin:0;
+    text-align:center;
+}
+.icon-tabs__icon{
+    @include size(74px);
+    margin:0 auto 5px;
+    border-radius:50%;
+    background:#d1d1d1;
+    @include transition(background .15s ease-in);
+    position:relative;
+}
+.icon-tabs__img{
+    position:absolute;
+    top:0; left:0; right:0; bottom:0;
+    width:50px;
+    height:50px;
+    margin:auto;
+    border-radius:50%;
+}
+.icon-tabs__name{
+    line-height:1.2;
+    font-weight:600;
+    opacity:0;
+    @include transition(opacity .15s ease);
 }

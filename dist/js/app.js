@@ -44,7 +44,6 @@
 // Покажем скрытую форму при клике на ссылку
 // Слайдер событий
 // Слайдер логотипов партнеров
-// Скролл контента (блоки в разделе Шаги реализации)
 // Аккордеон в разделе Шаги реализации
 // Кнопка скролла страницы
 // Если браузер не знает о svg-картинках
@@ -304,20 +303,6 @@ jQuery(document).ready(function ($) {
     }
     if ($('.js-partners-slider').length) { initPartnerSlider() }
 
-    //
-    // Скролл контента (блоки в разделе Шаги реализации)
-    //---------------------------------------------------------------------------------------
-    function initScroll() {
-        $('.js-scroll').each(function () {
-            var $scroll = $(this);
-            $scroll.perfectScrollbar({
-                wheelPropagation: true,
-                minScrollbarLength: 30,
-                maxScrollbarLength: 180
-            });
-        });
-    }
-    if ($('.js-scroll').length) { initScroll(); }
 
     //
     // Аккордеон в разделе Шаги реализации
@@ -325,7 +310,18 @@ jQuery(document).ready(function ($) {
     function initStepAccordion(el) {
         var method = {};
 
-        method.initTabs = function () {
+        method.initScroll = function () {//js-скролл во внутренних вкладках
+            $('.js-scroll').each(function () {
+                var $scroll = $(this);
+                $scroll.perfectScrollbar({
+                    wheelPropagation: true,
+                    minScrollbarLength: 30,
+                    maxScrollbarLength: 180
+                });
+            });
+        }
+
+        method.initTabs = function () {//запустим вкладки аккордеона
             var $tab = $('.step-tabs__content');
             $tab.not(':first').hide();
             $tab.filter(':first').parent('li').addClass('active');
@@ -341,7 +337,7 @@ jQuery(document).ready(function ($) {
             }
         }
 
-        method.showTab = function (link) {
+        method.showTab = function (link) {//раскроем вкладку аккордеона по клику
             var target = link.attr('href');
             if (target) {
                 link.parents('li').addClass('active');
@@ -349,7 +345,7 @@ jQuery(document).ready(function ($) {
             }
         }
 
-        method.hideTab = function (link) {
+        method.hideTab = function (link) {//закроем вкладку аккордеона по клику
             var target = link.attr('href');
             if (target) {
                 link.parents('li').removeClass('active');
@@ -357,7 +353,7 @@ jQuery(document).ready(function ($) {
             }
         }
 
-        method.scrollToTab = function (target) {
+        method.scrollToTab = function (target) {//скролл при клике на описание шага (верхняя часть страницы) к соответств.шагу
             if (target) {
                 $('html, body').animate({
                     scrollTop: $(target).offset().top
@@ -365,7 +361,29 @@ jQuery(document).ready(function ($) {
             }
         }
 
-       
+        method.initIconTabs = function () {//запустим внутренние вкладки (с иконками)
+            $('.js-icontabs').each(function () {
+                var $tabs = $(this);
+                $tabs.find('.icon-tabs__content').hide();
+                var current = $tabs.find('.icon-tabs__item').filter(':first').addClass('current').children('a').attr('href');
+                $(current).show();
+                $tabs.perfectScrollbar('update');//обновили значение скролла
+            });
+        }
+
+        method.showIconTab = function (el) {//покажем внутреннюю вкладку при клике на иконку
+            var $tabs = el.parents('.js-icontabs'),
+                target = el.attr('href');
+            $tabs.find('.icon-tabs__item').removeClass('current');
+            $tabs.find('.icon-tabs__content').hide();
+            el.parent('li').addClass('current');
+            $(target).fadeIn();
+            $tabs.perfectScrollbar('update');//обновили значение скролла
+        }
+
+
+        method.initScroll();//подключили плагин скролла
+        method.initIconTabs();//запустили внутренние вкладки
         method.initTabs();//скрыли все вкладки аккордеона кроме первой
 
         $('.js-step-acc').on('click', '.step-tabs__title', function (e) {//раскроем-скроем вкладку аккордеона по клику на заголовок
@@ -382,10 +400,19 @@ jQuery(document).ready(function ($) {
             e.preventDefault();
             var target = $(this).attr('href');
             method.scrollToTab(target);//промотаем к соответствующему шагу
-            method.openTabs(target);
+            method.openTabs(target);//и раскроем в нем блоки аккордеона
         });
 
-        return method;
+        $('.js-icontabs').on('click', '.icon-tabs__link', function (e) {//переключение вкладок-иконок
+            e.preventDefault();
+            var $el = $(this);
+            if ($el.parent('li').hasClass('current')) {
+                return false;
+            } else {
+                method.showIconTab($el);
+            }
+        });
+
     }
     if ($('.js-step-acc').length) {
         initStepAccordion();
