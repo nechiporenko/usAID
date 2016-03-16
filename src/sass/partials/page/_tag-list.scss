@@ -1,0 +1,124 @@
+﻿@import "../../modules/_base.scss";
+/*Tag List*/
+.tag-list{
+    list-style-type:none;
+    padding:0;
+    margin:0 -10px $project-line-height;
+    font-size:0;
+
+    @include media($desktop){
+        text-align:justify;
+    }
+}
+.tag-list__item{
+    display:inline-block;
+    margin:0 0 15px 0;
+    padding:0 10px;
+    @include font-size(13px);
+    box-sizing:border-box;
+
+    &:last-child{
+        display:block;
+        @include media($desktop){
+            float:right;
+        }
+    }
+}
+.tag-list__link{
+    display:inline-block;
+    padding:8px 10px;
+    line-height:1.1;
+    color:#fff;
+    background:$primary;
+    position:relative;
+    text-decoration:none;
+    text-align:left;
+
+    &:after{
+        content:'';
+        display:none;
+        @include triangle(30px 10px, $primary, right);
+        position:absolute;
+        top:0; right:-10px; bottom:0;
+        @include transition(border-color .15s ease-in);
+
+        @include media($small){
+            display:block;
+        }
+    }
+
+    &:hover,
+    &:active,
+    &.current{
+        background:$primary-alt;
+
+        &:after{
+            border-left-color:$primary-alt;
+        }
+    }
+
+    &.current{
+        cursor:default;
+    }
+}
+
+.tag-list__btn{
+    display:inline-block;
+    padding:0 5px 0 20px;
+    vertical-align:middle;
+    width:270px;
+    height:30px;
+    line-height:29px;
+    border:1px solid $primary;
+    border-radius:0;
+    background:none;
+    @include font-size(13px);
+    color:$primary;
+    text-align:left;
+
+    [class^="icon-"], [class*=" icon-"]{
+        float:right;
+    }
+
+    [class^="icon-"]:before, [class*=" icon-"]:before{
+        margin-right:0;
+    }
+
+    &:hover,
+    &:focus{
+        color:$primary-alt;
+        border-color:$primary-alt;
+        outline:none;
+    }
+}
+
+.tag-list--alt{//другой цвет для тегов
+    .tag-list__link{
+        background:$primary-alt;
+
+        &:after{
+            border-left-color:$primary-alt;
+        }
+
+        &:hover,
+        &:active,
+        &.current{
+            background:$primary;
+
+            &:after{
+                border-left-color:$primary;
+            }
+        }
+    }
+
+    .tag-list__btn{
+        color:$primary-alt;
+        border-color:$primary-alt;
+
+        &:hover,
+        &:active{
+            color:$primary;
+            border-color:$primary;
+        }
+    }
+}
