@@ -265,3 +265,98 @@
     opacity:0;
     @include transition(opacity .15s ease);
 }
+
+/*Steps - compact (2 column) version*/
+
+.b-steps__inner{
+    @extend .g-row;
+}
+
+.b-steps__column{
+    @extend .g-column;
+
+    @include media($desktop){
+         width:(100%-$grid-gutter)/2;
+         margin-left:$grid-gutter;
+
+         &:first-child{
+             margin-left:0;
+         }
+    }
+}
+
+.b-steps__inner{
+    .b-steps__name{
+        padding:15px 15px 15px 50px;
+        min-height:105px;
+
+        @include media($tablet){
+            padding:15px 15px 15px 50px;
+        }
+
+        @include media($desktop){
+            padding-left:70px;
+        }
+
+        &:before{
+            width:4px;
+            height:30px;
+            top:22px;
+        }
+    }
+
+    .b-steps__number{
+        @include font-size(32px);
+        top:15px; left:15px;
+
+        @include media($tablet){
+            top:12px;
+            @include font-size(50px);
+        }
+
+        @include media($desktop){
+            top:8px;
+            left:18px;
+            @include font-size(82px);
+        }
+    }
+
+    .b-steps__subtitle{
+        font-family:$font-title;
+        margin-bottom:10px;
+        @include font-size(15px);
+        border:none;
+    }
+    .b-steps__description{
+        line-height:1.5;
+        @include font-size(13px);
+
+        p{
+            margin:5px 0;
+        }
+    }
+
+    .step-tabs__title{
+        padding:0 50px 0 18px;
+        height:38px;
+        line-height:38px;
+        @include font-size(14px);
+
+        [class^="icon-"]:before, [class*=" icon-"]:before{
+            font-size:130%;
+            margin-right:10px;
+        }
+    }
+
+    .step-tabs__arrow{
+        @include size(24px);
+        line-height:22px;
+        margin-top:-12px;
+        right:10px;
+
+        [class^="icon-"]:before, [class*=" icon-"]:before{
+            margin:0;
+            @include font-size(10px);
+        }
+    }
+}

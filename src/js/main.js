@@ -342,9 +342,16 @@ jQuery(document).ready(function ($) {
             $tabs.perfectScrollbar('update');//обновили значение скролла
         }
 
+        method.matchHeight = function () {//если выводим в 2 колонках - сделаем заголовки шагов одной высоты
+            $('.b-steps__inner .b-steps__name').matchHeight({
+                byRow: false
+            });
+        }
+
 
         method.initScroll();//подключили плагин скролла
         method.initIconTabs();//запустили внутренние вкладки
+        method.matchHeight();//если 2 колонки - выровняли по макс.высоте
         method.initTabs();//скрыли все вкладки аккордеона кроме первой
 
         $('.js-step-acc').on('click', '.step-tabs__title', function (e) {//раскроем-скроем вкладку аккордеона по клику на заголовок
