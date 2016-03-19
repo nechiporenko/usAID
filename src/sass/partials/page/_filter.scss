@@ -1,0 +1,57 @@
+﻿@import "../../modules/_base.scss";
+/*Page Filters*/
+.b-filter{
+    @extend .g-clearfix;
+    margin-bottom:50px;
+}
+
+.b-filter__label{
+    @extend .g-label;
+    @include font-size(14px);
+    font-weight:400;
+    color:#1e1e1e;
+}
+
+.b-filter__select{
+    @extend .g-select;
+}
+
+
+.selectric-b-filter__select{
+    margin-bottom:10px;
+}
+
+@include media($tablet){
+    .b-filter__inner{
+        float:right;
+    }
+
+    .b-filter__column{
+        float:left;
+        margin-left:25px;
+
+        &:first-child{
+            margin-left:0;
+        }
+    }
+
+    .b-filter__select,
+    .selectric-b-filter__select{
+        width:270px;
+        margin-bottom:10px;
+    }
+}
+
+@include media($desktop){
+    .b-filter__label{
+        display:inline-block;
+        margin:0 10px 0 0;
+        vertical-align:middle;
+    }
+
+    .selectric-b-filter__select{
+        display:inline-block;
+        vertical-align:middle;
+        margin-bottom:0;
+    }
+}
