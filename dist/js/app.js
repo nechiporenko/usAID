@@ -630,7 +630,9 @@ jQuery(document).ready(function ($) {
             return false;
         }
 
+
         method.init();//запустили вкладки
+
 
         $tabs.on('click', '.b-tabs__link[href^="#"]', function (e) {//переключение по клику
             e.preventDefault();
@@ -641,6 +643,14 @@ jQuery(document).ready(function ($) {
                 method.show($el);
             }
         });
+
+        (function () {//парсим линк и открываем нужную вкладку при загрузке
+            var hash = window.location.hash;
+            if (hash) {
+                var selectedTab = $('.b-tabs__item a[href="' + hash + '"]');
+                selectedTab.trigger('click', true);
+            }
+        })();
     };
     if ($('.js-tabs').length) { initTabs();}
     
