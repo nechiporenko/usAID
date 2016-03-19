@@ -406,6 +406,93 @@ jQuery(document).ready(function ($) {
     })();
 
 
+    // Календарь
+    function initCalendar() {
+        moment.locale('uk');
+        var picker_lang = {
+            previousMonth: 'Попередній місяць',
+            nextMonth: 'Наступний місяць',
+            months: ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'],
+            weekdays: ['Неділя', 'Понеділок', 'Вівторок', 'Середа', 'Четвер', "П'ятниця", 'Субота'],
+            weekdaysShort: ['Нед', 'Пон', 'Вів', 'Сер', 'Чет', 'Птн', 'Суб']
+        };
+
+        var startDate,
+        endDate,
+        method = {},
+        $calendar = $('.js-calendar'),
+        $calendar_btn = $('.js-calendar-btn'),
+        startPicker = new Pikaday({
+            field: document.getElementById('start_date'),
+            container: document.getElementById('start_holder'),
+            format: 'L',
+            firstDay: 1,
+            yearRange: [2010, 2030],
+            minDate: moment('2010-01-01'),
+            maxDate: moment().toDate(),
+            i18n: picker_lang,
+            onSelect: function () {
+                startDate = this.getDate();
+                method.updateStartDate();
+            }
+        }),
+        endPicker = new Pikaday({
+            field: document.getElementById('end_date'),
+            container: document.getElementById('end_holder'),
+            format: 'L',
+            firstDay: 1,
+            yearRange: [2010, 2030],
+            maxDate: moment().toDate(),
+            i18n: picker_lang,
+            onSelect: function () {
+                endDate = this.getDate();
+                method.updateEndDate();
+            }
+        });
+
+        method.updateEndDate = function () {
+            startPicker.setMaxDate(moment(endDate).subtract(1, 'days'));
+        };
+
+        method.updateStartDate = function () {
+            endPicker.setMinDate(new Date(moment(startDate).add(1, 'days')));
+        };
+
+        method.setStartPeriod = function () {
+            startPicker.setDate(moment().subtract(1, 'month').toDate());
+            endPicker.setDate(moment().toDate());
+        };
+
+        method.hideCalendar = function () {
+            $calendar_btn.removeClass('active');
+            $calendar.hide();
+            $body.unbind('click', method.hideCalendar);
+        }
+
+        method.showCalendar = function () {
+            $calendar_btn.addClass('active');
+            $calendar.fadeIn().parent().mouseleave(function () {
+                $body.bind('click', method.hideCalendar);
+            }).mouseenter(function () {
+                $body.unbind('click', method.hideCalendar);
+            });
+        };
+
+        
+
+        method.setStartPeriod();//установим интервал в 1 месяц по-умолчанию
+        $calendar_btn.on('click', function () {
+            if ($(this).hasClass('active')) {
+                method.hideCalendar();
+            } else {
+                method.showCalendar();
+            }
+        });
+        $calendar.on('click', '.b-calendar__close', method.hideCalendar);
+
+    };
+    if ($('.js-calendar').length) { initCalendar() }
+
     //
     // Если браузер не знает о svg-картинках
     //---------------------------------------------------------------------------------------

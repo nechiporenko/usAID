@@ -16,11 +16,14 @@
     padding:0 10px;
     @include font-size(13px);
     box-sizing:border-box;
+    position:relative;
 
     &:last-child{
         display:block;
+
         @include media($desktop){
             float:right;
+            text-align:left;
         }
     }
 }
@@ -85,7 +88,8 @@
     }
 
     &:hover,
-    &:focus{
+    &:focus,
+    &.active{
         color:$primary-alt;
         border-color:$primary-alt;
         outline:none;

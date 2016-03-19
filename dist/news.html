@@ -122,18 +122,30 @@
                     <a href="#" class="tag-list__link current">Фармацевтична галузь</a>
                 </li>
                 <li class="tag-list__item">
-                    <button class="tag-list__btn">Обрати за датою <i class="icon-calendar"></i></button>
+                    <button class="tag-list__btn js-calendar-btn">Обрати за датою <i class="icon-calendar"></i></button>
+                    <!--CALENDAR BLOCK START-->
+                    <div class="b-calendar js-calendar">
+                        <div class="b-calendar__inner">
+                            <div class="b-calendar__column">
+                                <label class="b-calendar__label">Початок періоду:</label>
+                                <input type="text" class="b-calendar__input" placeholder="дд.мм.рррр" id="start_date" />
+                                <div class="b-calendar__holder" id="start_holder"></div>
+                            </div>
+                            <div class="b-calendar__column">
+                                <label class="b-calendar__label">Кінець періоду:</label>
+                                <input type="text" class="b-calendar__input" placeholder="дд.мм.рррр" id="end_date" />
+                                <div class="b-calendar__holder" id="end_holder"></div>
+                            </div>
+                        </div>
+                        <button type="button" class="b-calendar__btn">Знайти повідомлення</button>
+                        <button type="button" class="b-calendar__close" title="Сховати"><i class="icon-cancel"></i></button>
+                    </div>
+                    <!--/CALENDAR BLOCK END-->
                 </li>
             </ul>
             <!--/TAG LIST END-->
 
-            <!--CALENDAR BLOCK START-->
-            <div class="b-calendar">
-                <div class="b-calendar__inner">
-
-                </div>
-            </div>
-            <!--/CALENDAR BLOCK START-->
+           
             
         </div><!--/g-container-->
     </main>
