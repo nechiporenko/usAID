@@ -1,0 +1,88 @@
+﻿@import "../../modules/_base.scss";
+/*Tag List Calendar*/
+.b-calendar{
+    position:absolute;
+    width:100%;
+    top:100%;
+    left:0;
+    padding:40px 10px 5px;
+    background:#e8e8e8;
+    box-sizing:border-box;
+    z-index:100;
+    display:none;//покажем скриптом
+
+    @include media($small){
+        width:400px;
+    }
+
+    @include media($desktop){
+        left:auto;
+        right:10px;
+    }
+}
+
+.b-calendar__inner{
+    @extend .g-row;
+}
+
+.b-calendar__column{
+    @extend .g-col;
+    @extend .g-col--one-half;
+    position:relative;
+}
+
+.b-calendar__holder{//для точного позиционирования календарика
+    position:absolute;
+    top:19px;
+    left:0;
+    z-index:110;
+
+    @include media($desktop){
+        left:auto;
+        right:0;
+    }
+}
+
+.b-calendar__close{
+    border:none;
+    padding:0;
+    margin:0;
+    background:none;
+    outline:0;
+    @include size(40px);
+    line-height:40px;
+    text-align:right;
+    color:$primary;
+    @include font-size(24px);
+    position:absolute;
+    top:0; right:10px;
+
+    [class^="icon-"]:before, [class*=" icon-"]:before{
+        margin:0;
+    }
+
+    &:hover,
+    &:active{
+        color:$primary-alt;
+    }
+}
+
+.b-calendar__label{
+    @extend .g-label;
+    color:$primary;
+    font-weight:600;
+    text-align:left;
+}
+
+.b-calendar__input{
+    @extend .g-input;
+    height:30px;
+    margin-bottom:15px;
+    @include font-size(14px);
+    
+}
+
+.b-calendar__btn{
+    @extend .g-btn;
+    width:100%;
+}
