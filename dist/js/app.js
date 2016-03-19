@@ -106,7 +106,7 @@
 // Кнопка скролла страницы
 // Календарь
 // Стилизация селектов
-// Если браузер не знает о svg-картинках
+// Вкладки
 // Если браузер не знает о плейсхолдерах в формах
 
 jQuery(document).ready(function ($) {
@@ -600,13 +600,50 @@ jQuery(document).ready(function ($) {
     $('.js-select').selectric();
 
     //
-    // Если браузер не знает о svg-картинках
+    // Вкладки
     //---------------------------------------------------------------------------------------
-    if (!Modernizr.svg) {
-        $('img[src*="svg"]').attr('src', function () {
-            return $(this).attr('src').replace('.svg', '.png');
+    function initTabs() {
+        var $tabs = $('.js-tabs'),
+            method = {};
+
+        method.init = function () {
+            $tabs.each(function () {
+                $(this).find('.b-tabs__content').not(':first').hide();
+                var current = $(this).find('.b-tabs__item.current');
+                if (!current.length) {
+                    $(this).find('.b-tabs__item').filter(':first').addClass('current');
+                }
+                current = $(this).find('.b-tabs__item.current a').attr('href');
+                $(current).show();
+            });
+        };
+
+        method.show = function (el) {
+            var $buttons = el.parents('ul').find('li'),
+                tab_next = el.attr('href'),
+                tab_current = $buttons.filter('.current').find('a').attr('href');
+            $(tab_current).hide();
+            $buttons.removeClass('current');
+            el.parent().addClass('current');
+            $(tab_next).fadeIn();
+            history.pushState(null, null, window.location.search + el.attr('href'));
+            return false;
+        }
+
+        method.init();//запустили вкладки
+
+        $tabs.on('click', '.b-tabs__link[href^="#"]', function (e) {//переключение по клику
+            e.preventDefault();
+            var $el = $(this);
+            if ($el.parent().hasClass('current')) {
+                return false;
+            } else {
+                method.show($el);
+            }
         });
     };
+    if ($('.js-tabs').length) { initTabs();}
+    
     
     //
     // Если браузер не знает о плейсхолдерах в формах

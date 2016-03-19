@@ -110,6 +110,14 @@ ol ul {
     @include px2rem(margin, $project-line-height/2 0 $project-line-height/2 30px);
 }
 
+.g-list-unstyled{
+    @extend .g-clearlist;
+
+    li{
+        margin-bottom:$project-line-height/2;
+    }
+}
+
 .g-clearlist{
     list-style-type:none;
     margin:0;

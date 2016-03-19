@@ -1,0 +1,102 @@
+﻿@import "../../modules/_base.scss";
+/*Page Tabs*/
+.b-tabs{
+    margin-bottom:35px;
+}
+
+.b-tabs__title{
+    display:block;
+    padding-left:90px;
+    margin:15px 0;
+    line-height:1.1;
+    font-family:$font-regular;
+    @include font-size(21px);
+    color:$primary;
+    line-height:1.1;
+    font-weight:600;
+    text-transform:uppercase;
+    box-sizing:border-box;
+    position:relative;
+
+    @include media($large){
+        float:left;
+        width:50%;
+    }
+}
+.b-tabs__icon{
+   position:absolute;
+   left:0;
+   bottom:0;
+   @include size(80px);
+}
+
+.b-tabs__img{
+    position:absolute;
+    bottom:2px;
+    left:50%;
+    max-width:80px;
+    @include transform(translateX(-50%));
+}
+
+.b-tabs__list{
+    @extend .g-clearlist;
+    font-size:0;
+
+    @include media($large){
+        float:right;
+    }
+}
+.b-tabs__item{
+    display:block;
+    width:280px;
+    margin-bottom:4px;
+    @include font-size(18px);
+
+    @include media($small){
+        display:inline-block;
+        vertical-align:bottom;
+        width:auto;
+        margin-left:4px;
+        &:first-child{
+            margin-left:0;
+        }
+    }
+
+    &.current .b-tabs__link{
+        color:$primary;
+        background:#e8e8e8;
+        cursor:default;
+    }
+}
+
+.b-tabs__link{
+    display:block;
+    padding:18px 20px;
+    line-height:1;
+    white-space:nowrap;
+    text-decoration:none;
+    color:#fff;
+    background:$primary;
+
+    &:hover,
+    &:active{
+        color:$primary;
+        background:#e8e8e8;
+    }
+}
+
+.b-tabs__inner{
+    background:#e8e8e8;
+    font-weight:300;
+    color:#252525;
+}
+
+.b-tabs__content{
+    @extend .g-clearfix;
+    padding:20px 10px 10px;
+    @include font-size(14px);
+
+    @include media($desktop){
+        padding:20px 30px 10px;
+    }
+}

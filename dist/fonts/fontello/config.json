@@ -143,6 +143,12 @@
       "css": "calendar",
       "code": 59414,
       "src": "fontawesome"
+    },
+    {
+      "uid": "6083c8aa5e3345476a24a28ac1afaa61",
+      "css": "cog",
+      "code": 59415,
+      "src": "elusive"
     }
   ]
 }
