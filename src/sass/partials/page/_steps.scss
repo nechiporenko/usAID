@@ -266,13 +266,17 @@
     @include transition(opacity .15s ease);
 }
 
-/*Steps - compact (2 column) version*/
 
+
+
+
+
+/*Steps - compact (2 column) version*/
 .b-steps__inner{
     @extend .g-row;
 }
 
-.b-steps__column{
+/*.b-steps__column{
     @extend .g-column;
 
     @include media($desktop){
@@ -283,7 +287,7 @@
              margin-left:0;
          }
     }
-}
+}*/
 
 .b-steps__inner{
     .b-steps__name{
@@ -359,4 +363,41 @@
             @include font-size(10px);
         }
     }
+}
+
+//Salvattore grid
+.b-steps__grid{
+    margin:0 -10px;
+}
+
+.b-grid__col{
+    float:left;
+    padding:0 10px;
+    min-height:1px;
+    box-sizing:border-box;
+
+    &.size-1of1 { width: 100%; }
+    &.size-1of2 { width: 50%; }
+}
+
+#grid[data-columns]::before{
+    visibility:hidden;
+}
+
+@media screen and (max-width: 991px){
+    #grid[data-columns]::before{
+        content: '1 .b-grid__col.size-1of1';
+    }
+}
+
+@media screen and (min-width: 992px) {
+     #grid[data-columns]::before{
+        content: '2 .b-grid__col.size-1of2';
+    }
+}
+
+
+.no-js #grid[data-columns]::before,
+.lt-ie9 #grid[data-columns]::before{
+    display:none;
 }

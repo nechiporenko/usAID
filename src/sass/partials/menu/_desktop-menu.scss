@@ -4,7 +4,7 @@
     @extend .g-clearlist;
     float:right;
     font-size:0;
-    border-bottom:5px solid #0a0a0a;
+    border-bottom:5px solid $primary;
 }
 .d-menu__item{
     display:inline-block;
@@ -33,7 +33,7 @@
     &.hover,
     &.current{
         color:#fff;
-        background:#0a0a0a;
+        background:$primary;
     }
 
     &.current{
@@ -49,7 +49,7 @@
     left:0; top:100%;
     z-index:200;
     padding:5px 0 0 0;
-    background:#0a0a0a;
+    background:$primary;
     box-sizing:border-box;
 }
 
@@ -68,7 +68,7 @@
     &:hover,
     &:active,
     &.current{
-        background:lighten(#0a0a0a, 10%);
+        background:$primary-light;
     }
 
     &.current{

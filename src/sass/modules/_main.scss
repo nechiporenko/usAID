@@ -58,13 +58,14 @@ html{
 }
 
 .page__section{
-    padding:$project-line-height 0 2*$project-line-height;
+    //padding:$project-line-height 0 2*$project-line-height;
+    padding:$project-line-height/2 0 $project-line-height;
 }
 
 /* Typography*/
 h1, h2, h3, h4, h5, h6, .g-title, .g-subtitle{
   margin-top: 0;
-  @include px2rem(margin-bottom, 1.4*$project-line-height);
+  @include px2rem(margin-bottom, $project-line-height);
   line-height:1.2;
   font-family:$font-title, serif;
   color:$title-color;
@@ -168,7 +169,7 @@ table,
 p,
 ul,
 ol{
-    @include px2rem(margin-bottom, $project-line-height);
+    @include px2rem(margin-bottom, $project-line-height/2);
 }
 
 /* Misc */

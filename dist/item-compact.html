@@ -120,7 +120,7 @@
             
             <!--CHANGES BLOCK START-->
             <div class="b-change js-step-links">
-                <ul class="b-change__column">
+                <ul class="b-change__list">
                     <li class="b-change__item">
                         <a href="#step1" class="b-change__link">
                             <span class="b-change__title">Зміна 1</span>
@@ -133,7 +133,8 @@
                         <a href="#step2" class="b-change__link">
                             <span class="b-change__title">Зміна 2</span>
                             <div class="b-change__content">
-                                <p>Lorem ipsum dolor sit amet,  adipiscing elit. Aenean commodo ligula eget dolor. </p>
+                                <p>Lorem ipsum dolor sit amet</p>
+                                <p>Adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.  Lorem ipsum dolor sit amet,  adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
                             </div>
                         </a>
                     </li>
@@ -141,20 +142,15 @@
                         <a href="#step3" class="b-change__link">
                             <span class="b-change__title">Зміна 3</span>
                             <div class="b-change__content">
-                                <p>Lorem ipsum dolor sit amet,  adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
-                                <p>Lorem ipsum dolor sit amet,  adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+                                <p>Lorem ipsum dolor sit amet,  adipiscing elit. Aenean commodo ligula eget dolor. </p>
                             </div>
                         </a>
                     </li>
-                </ul>
-
-                <ul class="b-change__column">
                     <li class="b-change__item">
                         <a href="#step4" class="b-change__link">
                             <span class="b-change__title">Зміна 4</span>
                             <div class="b-change__content">
-                                <p>Lorem ipsum dolor sit amet</p>
-                                <p>Adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.  Lorem ipsum dolor sit amet,  adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+                                <p>Lorem ipsum dolor sit amet,  adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.  Lorem ipsum dolor sit amet,  adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Lorem ipsum dolor sit amet,  adipiscing elit. Aenean commodo ligula eget dolor.</p>
                             </div>
                         </a>
                     </li>
@@ -162,7 +158,8 @@
                         <div class="b-change__link">
                             <span class="b-change__title">Зміна 5</span>
                             <div class="b-change__content">
-                                <p>Lorem ipsum dolor sit amet,  adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.  Lorem ipsum dolor sit amet,  adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Lorem ipsum dolor sit amet,  adipiscing elit. Aenean commodo ligula eget dolor.</p>
+                                <p>Lorem ipsum dolor sit amet,  adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+                                <p>Lorem ipsum dolor sit amet,  adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
                             </div>
                         </div>
                     </li>
@@ -183,8 +180,7 @@
                 <h2 class="b-steps__title">Кроки, що необхідно здійснити</h2>
 
                 <div class="b-steps__inner">
-                    <!--STEPS COLUMN START-->
-                    <div class="b-steps__column">
+                    <div class="b-steps__grid" id="grid" data-columns>
                         <!--STEP ITEM START-->
                         <div class="b-steps__item js-step-acc" id="step1">
                             <figure class="b-steps__name">
@@ -341,11 +337,6 @@
                             </ul>
                         </div>
                         <!--/STEP ITEM END-->
-                    </div>
-                    <!--/STEPS COLUMN END-->
-
-                    <!--STEPS COLUMN START-->
-                    <div class="b-steps__column">
                         <!--STEP ITEM START-->
                         <div class="b-steps__item js-step-acc" id="step3">
                             <figure class="b-steps__name">
@@ -482,8 +473,7 @@
                             </ul>
                         </div>
                         <!--/STEP ITEM END-->
-                    </div>
-                    <!--/STEPS COLUMN END-->
+                    </div><!--/b-step__grid-->
                 </div><!--/b-steps__inner-->
             </section>
             <!--/STEPS SECTION END-->
@@ -557,5 +547,9 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
     <script src="js/app.min.js"></script>
+
+    <!--ADDITIONAL SCRIPT START-->
+    <script src="js/vendor/salvattore.min.js"></script>
+    <!--/ADDITIONAL SCRIPT END-->
 </body>
 </html>
