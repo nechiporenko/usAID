@@ -21,7 +21,8 @@
    @extend .g-input;
    height:36px;
    margin-bottom:0;
-   width:125px;
+   //width:125px;
+   width:110px;
    @include font-size(14px);
 
    @include media($mobile){

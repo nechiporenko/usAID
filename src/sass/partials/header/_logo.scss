@@ -1,7 +1,7 @@
 ﻿@import "../../modules/_base.scss";
 
 /*Header Logo*/
-.b-header__logo{
+/*.b-header__logo{
     float:left;
     width:123px;
     height:36px;
@@ -22,5 +22,47 @@
         @include hidpi(1.5){
             background-image:url(../img/logo-2x.png);
         }
+    }
+}*/
+
+.b-logo{
+    float:left;
+    text-decoration:none;
+    text-align:right;
+    @include font-size(12px);
+}
+
+.b-logo__img{
+    width:123px;
+    height:36px;
+    @include hide-text;
+    background-image:url(../img/logo-xs.png);
+    background-repeat:no-repeat;
+    background-size:contain;
+
+    @include hidpi(1.5){
+        background-image:url(../img/logo-xs-2x.png);
+    }
+}
+
+.b-logo__title{
+    display:none;
+    font-weight:600;
+    letter-spacing:rem(.1px);
+}
+
+@include media($tablet){
+    .b-logo__img{
+        width:372px;
+        height:54px;
+        background-image:url(../img/logo.png);
+
+        @include hidpi(1.5){
+            background-image:url(../img/logo-2x.png);
+        }
+    }
+
+    .b-logo__title{
+        display:block;
     }
 }

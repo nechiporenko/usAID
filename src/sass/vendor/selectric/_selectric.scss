@@ -202,12 +202,13 @@ $selectric-inner-height:    $selectric-height - ($selectric-border-width * 2) !d
   }
 
   .disabled {
-    filter: alpha(opacity=50);
+    /*filter: alpha(opacity=50);
     opacity: 0.5;
     cursor: default !important;
     background: none !important;
     color: #666 !important;
-    @include user-select(none);
+    @include user-select(none);*/
+    display:none;
   }
 
   .selectric-group {

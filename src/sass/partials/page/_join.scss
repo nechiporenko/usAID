@@ -34,3 +34,24 @@
 .no-js .b-join__form{
     display:block;
 }
+
+/*Join section - alt colors*/
+.b-join--dark{
+    margin-bottom:$project-line-height;
+    padding-top:$project-line-height;
+    background:#096eb2;
+    color:#fff;
+
+    .g-title{
+        color:#fff;
+    }
+
+    .b-join__link{
+        color:#f1f1f1;
+
+        &:hover,
+        &:active{
+            color:#fff;
+        }
+    }
+}

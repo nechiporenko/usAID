@@ -47,7 +47,10 @@
 
         <!--HEADER MAIN SECTION START-->
         <div class="b-header__main">
-            <a href="index.html" class="b-header__logo">USAID Україна</a>
+            <a href="index.html" class="b-logo">
+                <div class="b-logo__img">USAID Україна</div>
+                <span class="b-logo__title">Програма «Лідерство в економічному врядуванні»</span>
+            </a>
             <form class="b-search">
                 <label class="g-visuallyhidden">Пошук по сайту</label>
                 <input type="text" class="b-search__input" />
@@ -105,21 +108,21 @@
             <div class="b-filter">
                 <div class="b-filter__inner">
                     <div class="b-filter__column">
-                        <label class="b-filter__label">Обрати сферу діяльності:</label>
                         <select class="b-filter__select js-select">
-                            <option value="0">Усі сфери діяльності</option>
-                            <option value="1">Сфера діяльності 1</option>
-                            <option value="2">Сфера діяльності 2 з дуже довгою, несамовито довгою назвою</option>
-                            <option value="2">Сфера діяльності 3</option>
+                            <option value="0" selected disabled>Сфера діяльності</option>
+                            <option value="1">Усі сфери діяльності</option>
+                            <option value="2">Сфера діяльності 1</option>
+                            <option value="3">Сфера діяльності 2 з дуже довгою, несамовито довгою назвою</option>
+                            <option value="4">Сфера діяльності 3</option>
                         </select>
                     </div>
                     <div class="b-filter__column">
-                        <label class="b-filter__label">Відібрати по напрямку:</label>
                         <select class="b-filter__select js-select">
-                            <option value="0">Виконавчий орган</option>
-                            <option value="1">Сфера діяльності 1</option>
-                            <option value="2">Сфера діяльності 2 з дуже довгою, несамовито довгою назвою</option>
-                            <option value="2">Сфера діяльності 3</option>
+                            <option value="0" selected disabled>Орган влади</option>
+                            <option value="1">Виконавчий орган</option>
+                            <option value="2">Сфера діяльності 1</option>
+                            <option value="3">Сфера діяльності 2 з дуже довгою, несамовито довгою назвою</option>
+                            <option value="4">Сфера діяльності 3</option>
                         </select>
                     </div>
                 </div>
@@ -132,7 +135,9 @@
                     <span class="b-tabs__icon">
                         <img src="img/rada.svg" class="b-tabs__img" alt="" />
                     </span>
-                    Верховна рада
+                    <span class="b-tabs__caption">
+                        Верховна рада
+                    </span>
                 </h1>
 
                 <div class="g-clearfix">
@@ -390,10 +395,9 @@
                                 <th>Місце</th>
                                 <th>Виконавчий орган</th>
                                 <th>Рейтинг виконаних робіт</th>
-                                <th>У процесі</th>
-                                <th>Виконано</th>
-                                <th>Не виконано</th>
-                                <th>Всього</th>
+                                <th width="15%">Виконано</th>
+                                <th width="15%">В роботі</th>
+                                <th width="15%">Не виконано</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -401,91 +405,81 @@
                                 <td class="g-text-center">1</td>
                                 <td>Президент України</td>
                                 <td class="g-text-center">31%</td>
-                                <td style="background:#fbc610; color:#fff" class="g-text-center">24</td>
-                                <td style="background:#62d947; color:#fff" class="g-text-center">35</td>
-                                <td style="background:#e9426f; color:#fff" class="g-text-center">12</td>
-                                <td style="background:#a2a2a2; color:#fff" class="g-text-center">71</td>
+                                <td style="background:#2ecc71; color:#fff" class="g-text-center">35</td>
+                                <td style="background:#7f8c8d; color:#fff" class="g-text-center">12</td>
+                                <td style="background:#e74c3c; color:#fff" class="g-text-center">71</td>
                             </tr>
                             <tr>
                                 <td class="g-text-center">2</td>
                                 <td>Відповідальний орган</td>
                                 <td class="g-text-center">19%</td>
-                                <td style="background:#fbc610; color:#fff" class="g-text-center">24</td>
-                                <td style="background:#62d947; color:#fff" class="g-text-center">35</td>
-                                <td style="background:#e9426f; color:#fff" class="g-text-center">12</td>
-                                <td style="background:#a2a2a2; color:#fff" class="g-text-center">71</td>
+                                <td style="background:#2ecc71; color:#fff" class="g-text-center">35</td>
+                                <td style="background:#7f8c8d; color:#fff" class="g-text-center">12</td>
+                                <td style="background:#e74c3c; color:#fff" class="g-text-center">71</td>
                             </tr>
                             <tr>
                                 <td class="g-text-center">3</td>
                                 <td>Верховна Рада</td>
                                 <td class="g-text-center">15%</td>
-                                <td style="background:#fbc610; color:#fff" class="g-text-center">24</td>
-                                <td style="background:#62d947; color:#fff" class="g-text-center">35</td>
-                                <td style="background:#e9426f; color:#fff" class="g-text-center">12</td>
-                                <td style="background:#a2a2a2; color:#fff" class="g-text-center">71</td>
+                                <td style="background:#2ecc71; color:#fff" class="g-text-center">35</td>
+                                <td style="background:#7f8c8d; color:#fff" class="g-text-center">12</td>
+                                <td style="background:#e74c3c; color:#fff" class="g-text-center">71</td>
                             </tr>
                             <tr>
                                 <td class="g-text-center">4</td>
                                 <td>МЕРТУ</td>
                                 <td class="g-text-center">5%</td>
-                                <td style="background:#fbc610; color:#fff" class="g-text-center">24</td>
-                                <td style="background:#62d947; color:#fff" class="g-text-center">35</td>
-                                <td style="background:#e9426f; color:#fff" class="g-text-center">12</td>
-                                <td style="background:#a2a2a2; color:#fff" class="g-text-center">71</td>
+                                <td style="background:#2ecc71; color:#fff" class="g-text-center">35</td>
+                                <td style="background:#7f8c8d; color:#fff" class="g-text-center">12</td>
+                                <td style="background:#e74c3c; color:#fff" class="g-text-center">71</td>
                             </tr>
                             <tr>
                                 <td class="g-text-center">5</td>
                                 <td>Відповідальний орган</td>
                                 <td class="g-text-center">5%</td>
-                                <td style="background:#fbc610; color:#fff" class="g-text-center">24</td>
-                                <td style="background:#62d947; color:#fff" class="g-text-center">35</td>
-                                <td style="background:#e9426f; color:#fff" class="g-text-center">12</td>
-                                <td style="background:#a2a2a2; color:#fff" class="g-text-center">71</td>
+                                <td style="background:#2ecc71; color:#fff" class="g-text-center">35</td>
+                                <td style="background:#7f8c8d; color:#fff" class="g-text-center">12</td>
+                                <td style="background:#e74c3c; color:#fff" class="g-text-center">71</td>
                             </tr>
                             <tr>
                                 <td class="g-text-center">6</td>
                                 <td>Відповідальний орган</td>
                                 <td class="g-text-center">4%</td>
-                                <td style="background:#fbc610; color:#fff" class="g-text-center">24</td>
-                                <td style="background:#62d947; color:#fff" class="g-text-center">35</td>
-                                <td style="background:#e9426f; color:#fff" class="g-text-center">12</td>
-                                <td style="background:#a2a2a2; color:#fff" class="g-text-center">71</td>
+                                <td style="background:#2ecc71; color:#fff" class="g-text-center">35</td>
+                                <td style="background:#7f8c8d; color:#fff" class="g-text-center">12</td>
+                                <td style="background:#e74c3c; color:#fff" class="g-text-center">71</td>
                             </tr>
                             <tr>
                                 <td class="g-text-center">7</td>
                                 <td>Відповідальний орган</td>
                                 <td class="g-text-center">3%</td>
-                                <td style="background:#fbc610; color:#fff" class="g-text-center">24</td>
-                                <td style="background:#62d947; color:#fff" class="g-text-center">35</td>
-                                <td style="background:#e9426f; color:#fff" class="g-text-center">12</td>
-                                <td style="background:#a2a2a2; color:#fff" class="g-text-center">71</td>
+                                <td style="background:#2ecc71; color:#fff" class="g-text-center">35</td>
+                                <td style="background:#7f8c8d; color:#fff" class="g-text-center">12</td>
+                                <td style="background:#e74c3c; color:#fff" class="g-text-center">71</td>
                             </tr>
                             <tr>
                                 <td class="g-text-center">8</td>
                                 <td>Відповідальний орган</td>
                                 <td class="g-text-center">3%</td>
-                                <td style="background:#fbc610; color:#fff" class="g-text-center">24</td>
-                                <td style="background:#62d947; color:#fff" class="g-text-center">35</td>
-                                <td style="background:#e9426f; color:#fff" class="g-text-center">12</td>
-                                <td style="background:#a2a2a2; color:#fff" class="g-text-center">71</td>
+                                <td style="background:#2ecc71; color:#fff" class="g-text-center">35</td>
+                                <td style="background:#7f8c8d; color:#fff" class="g-text-center">12</td>
+                                <td style="background:#e74c3c; color:#fff" class="g-text-center">71</td>
                             </tr>
                             <tr>
                                 <td class="g-text-center">9</td>
                                 <td>Відповідальний орган</td>
                                 <td class="g-text-center">2%</td>
-                                <td style="background:#fbc610; color:#fff" class="g-text-center">24</td>
-                                <td style="background:#62d947; color:#fff" class="g-text-center">35</td>
-                                <td style="background:#e9426f; color:#fff" class="g-text-center">12</td>
-                                <td style="background:#a2a2a2; color:#fff" class="g-text-center">71</td>
+                                <td style="background:#2ecc71; color:#fff" class="g-text-center">35</td>
+                                <td style="background:#7f8c8d; color:#fff" class="g-text-center">12</td>
+                                <td style="background:#e74c3c; color:#fff" class="g-text-center">71</td>
                             </tr>
                             <tr>
                                 <td class="g-text-center">10</td>
                                 <td>Відповідальний орган</td>
                                 <td class="g-text-center">1%</td>
-                                <td style="background:#fbc610; color:#fff" class="g-text-center">24</td>
-                                <td style="background:#62d947; color:#fff" class="g-text-center">35</td>
-                                <td style="background:#e9426f; color:#fff" class="g-text-center">12</td>
-                                <td style="background:#a2a2a2; color:#fff" class="g-text-center">71</td>
+                                <td style="background:#2ecc71; color:#fff" class="g-text-center">35</td>
+                                <td style="background:#7f8c8d; color:#fff" class="g-text-center">12</td>
+                                <td style="background:#e74c3c; color:#fff" class="g-text-center">71</td>
                             </tr>
                         </tbody>
                     </table>
