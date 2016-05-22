@@ -1,6 +1,7 @@
 ﻿@import "../../modules/_base.scss";
 /*Tag List*/
 .tag-list{
+    @extend .g-clearfix;
     list-style-type:none;
     padding:0;
     margin:0 -10px $project-line-height;

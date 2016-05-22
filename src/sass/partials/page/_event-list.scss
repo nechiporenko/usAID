@@ -1,0 +1,115 @@
+﻿@import "../../modules/_base.scss";
+/*List of Events*/
+.event-list{
+    @extend .post-list;
+}
+.event-list__item{
+    @extend .post-list__item;
+    &:before{
+        display:none;
+    }
+}
+.event-list__inner{
+    @extend .g-clearfix;
+    padding:10px;
+    margin:0;
+    background:#f4f4f4;
+}
+.event-list__link{
+    color:#0d0d0d;
+    text-decoration:none;
+
+    &:hover{
+        .event-list__title{
+            color:$primary-alt;
+        }
+        .event-list__more{
+            text-decoration:underline;
+        }
+    }
+}
+.event-list__date{
+    height:100px;
+    text-align:center;
+    line-height:1;
+    box-sizing:border-box;
+}
+.event-list__day{
+    display:block;
+    font-family:$font-condensed;
+    @include font-size(54px);
+    color:$primary;
+
+    &.current{
+        color:$primary-alt;
+    }
+}
+.event-list__month,
+.event-list__year{
+    display:block;
+    @include font-size(16px);
+    color:$primary;
+    line-height:1.2;
+}
+
+.event-list__title{
+    display:block;
+    margin-bottom:15px;
+    line-height:1.1;
+    font-family:$font-title;
+    @include font-size(22px);
+    color:$primary;
+    @include transition(color .3s);
+
+    &:hover,
+    &:active{
+        color:$primary-alt;
+    }
+}
+
+.event-list__description{
+    overflow:hidden;
+    position:relative;
+
+    &:after{
+        content:'';
+        display:block;
+        height:15px;
+        position:absolute;
+        left:0; right:0;
+        bottom:0;
+        z-index:1;
+        @include linear-gradient(to bottom, rgba(#f4f4f4, .2), rgba(#f4f4f4, 1));
+    }
+}
+
+.event-list__more{
+    @extend .post-list__more;
+}
+
+.event-list__icon{
+    @extend .post-list__icon;
+}
+
+@include media($tablet){
+    .event-list__inner{
+        padding:15px;
+    }
+    .event-list__date{
+        height:180px;
+        width:200px;
+        padding-top:40px;
+        float:left;
+        border-right:1px solid $border-color;
+    }
+    .event-list__info{
+        margin-left:230px;
+        padding-right:15px;
+    }
+}
+
+@include media($desktop){
+    .event-list__description{
+        height:155px;
+    }
+}
