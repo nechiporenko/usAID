@@ -1,0 +1,59 @@
+﻿@import "../../modules/_base.scss";
+/*Single Article*/
+.b-article{
+    @extend .g-clearfix;
+    padding-bottom:40px;
+    margin-bottom:$project-line-height;
+    border-bottom:1px solid #4d4d4d;
+}
+
+.b-article__inner,
+.b-article__side{
+    @extend .g-column;
+}
+
+.b-article__inner{
+    margin-bottom:$project-line-height;
+    font-size:rem(14px);
+    color:#000;
+    line-height:1.5;
+}
+
+.b-article__quote{
+    padding-left:0;
+    margin:0 0 30px;
+    font-size:rem(15px);
+    line-height:1.5;
+    border:none;
+}
+
+@include media($desktop){
+    .b-article__inner{
+        margin-bottom:0;
+        width:56.64%;
+        @include font-size(16px);
+    }
+
+    .b-article__side{
+        width:38%;
+        margin-left:5.36%;
+    }
+
+    .b-article__quote{
+        @include font-size(18px);
+    }
+}
+
+.b-article__title{
+    @extend .g-subtitle;
+    @include font-size(22px);
+    color:$primary;
+}
+
+.b-article__meta{
+    margin-bottom:$project-line-height;
+    color:#9c9c9c;
+    @include font-size(16px);
+    border-bottom:2px solid #9c9c9c;
+}
+

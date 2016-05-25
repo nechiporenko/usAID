@@ -129,3 +129,11 @@
         }
     }
 }
+
+//обычное выравнивание (без календаря)
+.tag-list--left{
+    .tag-list__item{
+        display:inline-block;
+        float:none;
+    }
+}
