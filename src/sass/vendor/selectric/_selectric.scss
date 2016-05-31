@@ -10,7 +10,7 @@ $selectric-text-color:      #1e1e1e !default;
 //$selectric-bg-color:        #F8F8F8 !default;                                           // Background color
 $selectric-bg-color:        #fff !default;
 
-$selectric-height:          40px !default;                                              // Outer height
+$selectric-height:          44px !default;                                              // Outer height
 $selectric-spacing:         10px !default;                                              // Label left padding
 $selectric-border-width:    1px !default;                                               // Outer border width
 $selectric-inner-height:    $selectric-height - ($selectric-border-width * 2) !default; // Inner height
@@ -25,9 +25,10 @@ $selectric-inner-height:    $selectric-height - ($selectric-border-width * 2) !d
 }
 
 .selectric {
-  border: $selectric-border-width solid $selectric-main-color;
+  border: $selectric-border-width solid $primary;
   background: $selectric-bg-color;
   position: relative;
+  margin-bottom:10px;
   @include transition(border-color .15s ease-in);
 
   .label {

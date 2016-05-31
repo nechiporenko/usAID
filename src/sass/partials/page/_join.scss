@@ -31,6 +31,7 @@
     display:none;
 }
 
+
 .no-js .b-join__form{
     display:block;
 }
@@ -53,5 +54,37 @@
         &:active{
             color:#fff;
         }
+    }
+}
+
+/*Join section -- with background*/
+.b-join--bg{
+    padding:45px 0;
+    margin-bottom:-2px;
+    border-bottom:2px solid #fff; //скроем полоску футера
+    background-color:#f3f2ef;
+    position:relative;
+    z-index:1;
+    color:$primary;
+
+    .g-title{
+        color:$primary;
+    }
+
+    .b-join__form{
+        display:block;
+    }
+
+    &:before{
+        content:'';
+        display:block;
+        position:absolute;
+        top:0; right:0; bottom:0; left:0;
+        background:url(../img/pattern-alt.png) repeat;
+        z-index:-1;
+    }
+
+    @include media($tablet){
+        background:url(../img/join-bg.png) center center no-repeat;
     }
 }
