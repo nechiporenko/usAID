@@ -27,6 +27,22 @@
             text-decoration:underline;
         }
     }
+
+    &.current{
+        .event-list__inner{
+            background:#fdf5f8;
+        }
+
+        .event-list__description{
+            &:after{
+                @include linear-gradient(to bottom, rgba(#fdf5f8, .2), rgba(#fdf5f8, 1));
+            }
+        }
+
+        .event-list__day{
+            color:$primary-alt;
+        }
+    }
 }
 .event-list__date{
     height:100px;
@@ -39,10 +55,6 @@
     font-family:$font-condensed;
     @include font-size(54px);
     color:$primary;
-
-    &.current{
-        color:$primary-alt;
-    }
 }
 .event-list__month,
 .event-list__year{
