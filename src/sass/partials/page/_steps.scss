@@ -194,6 +194,7 @@
 }
 .icon-tabs__item{
     display:inline-block;
+    vertical-align:top;
     @include font-size(14px);
     margin:0 10px 10px 0;
 
