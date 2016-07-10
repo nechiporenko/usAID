@@ -285,10 +285,30 @@ jQuery(document).ready(function ($) {
         }
 
         method.initTabs = function () {//запустим вкладки аккордеона
-            var $tab = $('.step-tabs__content');
-            $tab.not(':first').hide();
-            $tab.filter(':first').parent('li').addClass('active');
-        }
+            var $tab = $('.step-tabs__content'),
+                link = window.location.hash,
+                link_reg = /^#step\d{1,2}_\d{1,2}/i;
+
+            //парсим линк
+            if (link.length > 0 && link_reg.test(link)) {//если передана ссылка на внутреннюю вкладку (#stepN_N)
+                $('.icon-tabs__link').each(function () {
+                    var el = $(this),
+                        el_href = el.attr('href');
+                    if (el_href == link) {
+                        method.showIconTab(el);//нашли и открыли внутреннюю вкладку
+                        var $active_tab = el.parents('.step-tabs__content');//нашли вкладку - родителя
+                        $tab.hide();//скрыли род.вкладки
+                        $active_tab.show().parent('li').addClass('active');//открыли нужную
+                        link = link.split('_');//нашли id внешнего блока
+                        method.scrollToTab(link[0]);//промотали страницу к нему
+                        return false;//прервали цикл
+                    }
+                });
+            } else {//открываем первую вкладку по умолчанию
+                $tab.not(':first').hide();
+                $tab.filter(':first').parent('li').addClass('active');
+            }
+        };
 
         method.openTabs = function (target) {//раскроем обе вкладки аккордеона по айди родителя
             if (target) {
